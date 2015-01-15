@@ -15,6 +15,28 @@ Revisit your solution to homework #1, problem 5, which expresses an improper fra
 **a)** Write a function `fractionString(n,d)` which takes 2 parameters (n,d) and returns a string.  For example, 
 `fractionString(7,4)` should return "1 3/4", and `fractionString(3,3)` should (for now) return "1 0/3".  As before, assume that _n_ and _d_ are both positive integers.
 
+
+```
+//A
+
+//Question 1
+
+//a & b
+
+function fractionString(n, d){
+  var rem = n % d;
+  if (n > d && rem == 0) {
+    console.log(Math.floor(n/d));
+    } else if (n > d) {
+    console.log(Math.floor(n/d) + " " + rem + "/" + d);
+    }  else if (n == d) {
+      console.log(n);
+    } else {  
+         console.log(n + "/" + d);
+  }
+};
+```
+
 Note that _returning_ a string is not the same as _printing_ a string.  You may use `console.log()` for debugging, but your function should have the correct string as its return value.
 You can also print your return value with an expression like `console.log(fractionString(7,4))`.
 
