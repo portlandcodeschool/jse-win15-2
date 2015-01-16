@@ -87,13 +87,13 @@ if ((n - Math.floor(n)) >= .5) {
 ```
 
 function round (i) {
-	var numberTest = i%1;
-	if (numberTest <= .5) {
+	if (i%1 <= .5) {
 		return Math.floor(i);
 	} else {
 		return Math.ceil(i);
 	}
 };
+
 
 
 **b)**
