@@ -24,7 +24,7 @@
 
 3. 
 	function twelveDays() {
-		var gifts = new Array(12);
+		var gifts = new Array(13);
 		gifts[12] = ["Twelve Drummers Drumming", "twelfth"];
 		gifts[11] = ["Eleven Pipers Piping", "eleventh"];
 		gifts[10] = ["Ten Lords a Leaping", "tenth"];
@@ -37,15 +37,14 @@
 		gifts[3] = ["Three French Hens", "third"];
 		gifts[2] = ["Two Turtle Doves", "second"];
 		gifts[1] = ["Partridge in a Pear Tree", "first"];
-		gifts[0] = ["",""];
 		var day;
 		var gifts_received = 1;
 		var output_str = "";
 
-		for (var i = 1; i <= 12; i++) {
+		for (var i = 1; i <= 12; i++) { //loop do go through days
 			output_str += firstLines(gifts[i][1]); //generate the first lines using the custom day in gifts[x][1]
 
-			for (var j = gifts_received; j > 0; j--) {
+			for (var j = gifts_received; j > 0; j--) { //loop for writing lines(j) for each day(i)
                 if (gifts_received == 1) { //If it's the first day
                      output_str += "A "
                 } else if (j == 1) { //Any other day but with first day's present
@@ -63,4 +62,87 @@
 
 	console.log(twelveDays());
 
-4.
+4. 
+	A. function and2(a, b) {
+			var same = false;
+			if (a) {
+				if (b) {
+					same = true;
+				}
+			}
+			return same;
+	   }
+
+	B. function and3(a, b, c) {
+			var same = false;
+			if (c) {
+				if (and2(a,b)) {
+					same = true;
+				}
+			}
+			return same;
+		}
+
+	C. function andN(values) {
+			var same = true;
+			for (var i = 0; i < values.length; i++) {
+				if (!values[i]) { same = false; break; }
+			}
+			return same;
+		}
+
+	D. _____________________________________
+
+5.
+var suites = ["Hearts", "Diamonds", "Spades", "Clubs"];
+var ranks = new Array();
+ranks[1] = "Ace";
+ranks[11] = "Jack";
+ranks[12] = "Queen";
+ranks[13] = "King";
+
+var cards = new Array();
+
+for (var i = 1; i < ranks.length; i++) {
+	for (var j = 0; j < suites.length; j++) {
+        card = (ranks[i] == undefined)?i:ranks[i];
+		cards.push(card + ' of ' + suites[j]);
+
+	}
+}
+
+function printCards() {
+    for (var c = 0; c < cards.length; c++) {
+        console.log(c + ': ' + cards[c]);
+    }
+}
+
+
+
+function rank(card) { //returns 1-13, representing the card's rank (for an id between 0-51).
+    return Math.floor(card / 4) + 1;
+}
+
+function suit(card) { //returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
+    return (card % 4) + 1;
+}
+
+function cardID(rank,suit) { //returns 0-51, identifying the card id of a given rank and suit.
+
+}
+
+function color(card) { //"red","black" 
+	var b = Math.floor(((card / 2) % 2));
+	return b?'black':'red';
+}
+
+
+function name(card) { //returns the full name of the card (e.g. "Four of Diamonds").
+	var suites = ["", "Hearts", "Diamonds", "Spades", "Clubs"];
+	var ranks = new Array();
+	ranks[1] = "Ace";
+	ranks[11] = "Jack";
+	ranks[12] = "Queen";
+	ranks[13] = "King";
+	return ((ranks[rank(card)] == undefined)?rank(card):ranks[rank(card)]) + ' of ' + suites[suit(card)];
+}
