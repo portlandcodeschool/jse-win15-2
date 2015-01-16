@@ -2,9 +2,13 @@
 
 // function()--> possible return values
 
+var suitARR = [" Hearts", " Diamonds", " Spades", " Clubs"];
+var rankARR = ["Ace ", "Two ", "Three ", "Four ", "Five ", "Six ", "Seven ", "Eight ", "Nine ", "Ten ", "Jack ", "Queen ", "King "];
+
+
 function rank(id) { // --> 1..13
 	var r = id / 4;
-	return Math.ceil(r);
+	return Math.floor(r + 1);
 }
 
 function suit(id) { // --> 1..4
@@ -20,7 +24,6 @@ function cardID(rank,suit) { // --> 0..51
 function color(id) { // -->"red","black"
 	var colorCheck = suit(id);
 		if (colorCheck == 1 || colorCheck == 2){
-		alert(colorCheck);
 		return "red";
 	} else if (colorCheck == 3 ||  colorCheck == 4){
 		return "black";
@@ -28,11 +31,8 @@ function color(id) { // -->"red","black"
 }
 
 function name(id) { // --> string
-	var suitARR = [" Hearts", " Diamonds", " Spades", " Clubs"];
-	var rankARR = ["One ", "Two ", "Three ", "Four ", "Five ", "Six ", "Seven ",
-	"Eight ", "Nine ", "Ten ", "Jack ", "Queen ", "King "];
-	var rid = rank(id);
-	var sid = suit(id);
+	var rid = rank(id) - 1;
+	var sid = suit(id) - 1;
 	var name = rankARR[rid] + "of" + suitARR[sid];
 	return name;
 }
