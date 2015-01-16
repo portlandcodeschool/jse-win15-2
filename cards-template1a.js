@@ -2,19 +2,39 @@
 
 // function()--> possible return values
 
-function rank(card) { // --> 1..13
+function rank(id) { // --> 1..13
+	var r = id / 4;
+	return Math.ceil(r);
 }
 
-function suit(card) { // --> 1..4
+function suit(id) { // --> 1..4
+	var s = (id%4)+1;
+	return s
 }
 
 function cardID(rank,suit) { // --> 0..51
+	var cid = ((rank * 4) - 5)  + suit;
+	return cid;
 }
 
-function color(card) { // -->"red","black"
+function color(id) { // -->"red","black"
+	var colorCheck = suit(id);
+		if (colorCheck == 1 || colorCheck == 2){
+		alert(colorCheck);
+		return "red";
+	} else if (colorCheck == 3 ||  colorCheck == 4){
+		return "black";
+	};
 }
 
-function name(card) { // --> string
+function name(id) { // --> string
+	var suitARR = [" Hearts", " Diamonds", " Spades", " Clubs"];
+	var rankARR = ["One ", "Two ", "Three ", "Four ", "Five ", "Six ", "Seven ",
+	"Eight ", "Nine ", "Ten ", "Jack ", "Queen ", "King "];
+	var rid = rank(id);
+	var sid = suit(id);
+	var name = rankARR[rid] + "of" + suitARR[sid];
+	return name;
 }
 
 
@@ -35,4 +55,3 @@ assert(color(0)==='red',   "Test 10 failed");
 assert(color(2)==='black', "Test 11 failed");
 assert(name(5)==='Two of Diamonds', "Test 12 failed");
 assert(name(51)==='King of Clubs',  "Test 13 failed");
-
