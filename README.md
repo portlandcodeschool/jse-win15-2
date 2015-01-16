@@ -17,8 +17,6 @@ Revisit your solution to homework #1, problem 5, which expresses an improper fra
 
 
 ```
-//A
-
 //Question 1
 
 //a & b
@@ -63,6 +61,13 @@ if ((n - Math.floor(n)) >= .5) {
 }
 ```
 
+Solution:
+
+```
+var i
+n - Math.floor(n) >= .5 ? i = Math.ceil(n) : i = Math.floor(n);
+```
+
 
 **b)**
 ```
@@ -72,7 +77,16 @@ if (xIsFalse)
 else
    y = x;
 ```
+Solution:
 
+```
+var y, x
+if (x == true) {
+  y = true;
+  } else {
+  y = false;
+}
+```
 
 **c)**
 ```
@@ -82,6 +96,13 @@ for (var count = 15 - i ; count < 15 ; count=count+1) {
 }
 ```
 
+Solution 
+
+```
+for (var i = 15 ; i >= 1 ; i--){
+  console.log(i)
+};
+```
 
 **d)**
 ```
@@ -100,7 +121,18 @@ if (a) {
   }
 }
 ```
+Solution:
 
+```
+var x;
+if (a && b) {
+  x = 0;
+} else if (a || b) {
+  x = 1;
+} else {
+  x = 2;
+}
+```
 
 ---
 
@@ -120,7 +152,51 @@ Suppose the '&' key on your keyboard is missing, and you want to be able to cont
 **a)**
 Write a function `and2(a,b)` which tries to simulate the && operator: it should always return the same result as `(a && b)` for any values of _a_ and _b_.  (For example, `and2((0>1),true)` should return _false_.)  But you can't use && itself within your function!
 
+Solution: 
+```
+function and2(a,b){
+  function checkB(b) {
+    if (b === true){
+      return true;
+    } else {
+      return false;
+    };
+  };
+  if (a === true) {
+    return checkB(b);
+    } else {return false}
+  }
+  ```
+
+
+
+
 **b)** Write another function `and3(a,b,c)` which tries to simulate a double-&& operator: it should always return the same result as `(a && b && c)` for any values of a,b,c.  (For example, `and3((1>0),(0>1),true)` should return _false_.)  As before, you're not allowed to use && itself. Remember that you can call functions from functions!
+
+Solution:
+
+```
+function and3(a,b,c){
+  function checkC(c) {
+    if (c === true) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+  function checkB(b) {
+    if (b === true){
+      return checkC(c);
+    } else {
+      return false;
+    };
+  };
+  if (a === true) {
+    return checkB(b);
+    } else {return false}
+  }
+  ```
+
 
 **c)**
 Now generalize your function to handle any number of values.  You will learn better ways eventually, but for now use an array to store all the values.
@@ -129,6 +205,20 @@ If the argument you provide when calling the function holds values [a,b,c...z], 
 `andN(26,[a,b,c...z])`, the function should return the same result as `(a && b && c && ... z)`.
 Make sure to handle two special cases: length 0 (then return _true_) and length 1 (then return that single value).
 Again, don't use &&.
+
+Solution:
+
+```
+  function andN(values){
+  for (i = 0; i <= values.length; i++){
+    if (values[i] === false) {
+      return false;
+    } };
+    if (i = values.length + 2) {
+      return true;
+    }
+    ;}
+  ```
 
 **d)**
 You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances.  Explain why, and find an example which demonstrates failure.
