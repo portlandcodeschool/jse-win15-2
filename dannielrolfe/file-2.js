@@ -48,8 +48,7 @@ You can also print your return value with an expression like `console.log(fracti
             
         if (n % d === 0) { //This code checks if the variable is a whole number 
 
-			var integer = (n/d); //This converts var integer to 1
-					
+			var integer = (n/d); //This converts any var integer to 1		
 			return wholeNumber + ""; //This returns wholeNumber if integer is a wholeNumber
 		
 		} else {
@@ -86,6 +85,15 @@ if ((n - Math.floor(n)) >= .5) {
   i = Math.floor(n);
 }
 ```
+
+function round (i) {
+	var numberTest = i%1;
+	if (numberTest <= .5) {
+		return Math.floor(i);
+	} else {
+		return Math.ceil(i);
+	}
+};
 
 
 **b)**
