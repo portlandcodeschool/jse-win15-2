@@ -87,6 +87,7 @@ if ((n - Math.floor(n)) >= .5) {
 }
 ```
 
+
 **b)**
 ```
 var y, xIsFalse = (x? false : true);
