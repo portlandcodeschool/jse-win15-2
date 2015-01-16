@@ -163,45 +163,78 @@ x = !a + !b;
 // TODO storage could also be refactored to a smaller string storage built up with concatenation
 
 var singTwelveDays function(){
-  var twelveGiftsList = [ "1 thing"
-                    , "2 thing"
-                    , "3 thing"
-                    , "4 thing"
-                    , "5 thing"
-                    , "6 thing"
-                    , "7 thing"
-                    , "8 thing"
-                    , "9 thing"
-                    , "10 thing"
-                    , "11 thing"
-                    , "12 thing"];
+  var twelveGiftsList = [ "a Partridge in a Pear Tree"
+                    , "Two Turtle Doves"
+                    , "Three French Hens"
+                    , "Four Calling Birds"
+                    , "Five Gold Rings"
+                    , "Six Geese a-Laying"
+                    , "Seven Swans a-Swimming"
+                    , "Eight Maids a-Milking"
+                    , "Nine Ladies Dancing"
+                    , "Ten Lords a-Leaping"
+                    , "Eleven Pipers Piping"
+                    , "Twelve Drummers Drumming" ];
 
     var twelveDaysList = [ "On the first day of Christmas, my true love gave to me, "
-                              ,"On the second day of Christmas, my true love gave to me, "
-                              ,"On the third day of Christmas, my true love gave to me, "
-                              ,"On the fourth day of Christmas, my true love gave to me, "
-                              ,"On the fift day of Christmas, my true love gave to me, "
-                              ,"On the sixth day of Christmas, my true love gave to me, "
-                              ,"On the seventh day of Christmas, my true love gave to me, "
-                              ,"On the eigth day of Christmas, my true love gave to me, "
-                              ,"On the ninth day of Christmas, my true love gave to me, "
-                              ,"On the tenth day of Christmas, my true love gave to me, "
-                              ,"On the eleventh day of Christmas, my true love gave to me, "
-                              ,"On the twelve day of Christmas, my true love gave to me, "
-                              ];
+                    ,"On the second day of Christmas, my true love gave to me, "
+                    ,"On the third day of Christmas, my true love gave to me, "
+                    ,"On the fourth day of Christmas, my true love gave to me, "
+                    ,"On the fift day of Christmas, my true love gave to me, "
+                    ,"On the sixth day of Christmas, my true love gave to me, "
+                    ,"On the seventh day of Christmas, my true love gave to me, "
+                    ,"On the eigth day of Christmas, my true love gave to me, "
+                    ,"On the ninth day of Christmas, my true love gave to me, "
+                    ,"On the tenth day of Christmas, my true love gave to me, "
+                    ,"On the eleventh day of Christmas, my true love gave to me, "
+                    ,"On the twelve day of Christmas, my true love gave to me, "];
 
 
    //  loop through the 12 Days, singing each the new thing (index) and down (index to 0) the lists
    for (i = 0; i < twelveDaysList.length; i++) { // counting up the days list
-      console.log(twelveDaysList[i] + "day")
-      for (j = 0; j <= i; j++)  // counting up the gift list to the current day index
+      console.log(twelveDaysList[i])
+      for (j = i; j >= 0; j--)  // counting up the gift list to the current day index
         {
-          console.log(twelveGiftsList[j] + " gifts")
+          if ( i > 0 && j ===0 ){
+            console.log("and " + twelveGiftsList[j] )
+          }
+          else{
+            console.log(twelveGiftsList[j] )
+          }
+          
         }
    }
 
 
 }
+
+// Lyrics for the song: reference: http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_%28song%29
+On the First day of Christmas my true love sent to me
+a Partridge in a Pear Tree.
+
+On the Second day of Christmas my true love sent to me
+Two Turtle Doves
+and a Partridge in a Pear Tree.
+
+On the Third day of Christmas my true love sent to me
+Three French Hens,[3]
+Two Turtle Doves
+and a Partridge in a Pear Tree.
+
+Subsequent verses follow the same pattern, each adding one new gift and repeating all the earlier gifts, so that each verse is one line longer than its predecessor:
+a Partridge in a Pear Tree.
+Two Turtle Doves
+Three French Hens
+Four Calling Birds
+Five Gold Rings
+Six Geese a-Laying
+Seven Swans a-Swimming
+Eight Maids a-Milking
+Nine Ladies Dancing
+Ten Lords a-Leaping
+Eleven Pipers Piping
+Twelve Drummers Drumming
+
 
 
 
