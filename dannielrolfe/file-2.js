@@ -25,6 +25,52 @@ You can also print your return value with an expression like `console.log(fracti
 
 ---
 
+// a) 
+		function fractionString(n,d){
+			var wholeNumber = Math.floor(n/d);
+            
+			if (n % d === 0) { //This code checks if the variable is a whole number 
+				var integer = (0 + "/" + (d)); //If the variable is a whole number then return ( 0 + fraction)
+			} else {
+				integer = ((n%d) + "/" + (d)); //This returns 1 + fraction 	
+			} 
+            
+            return wholeNumber + " " + integer;
+            
+		};
+
+// b)
+
+
+   function fractionString(n,d) {
+        var wholeNumber = Math.floor(n/d) || ""; 
+        
+            
+        if (n % d === 0) { //This code checks if the variable is a whole number 
+
+			var integer = (n/d); //This converts var integer to 1
+					
+			return wholeNumber + ""; //This returns wholeNumber if integer is a wholeNumber
+		
+		} else {
+			
+			if (wholeNumber > 0) { //This checks if wholeNumber is greater than 1 
+				
+				integer = ((n%d) + "/" + (d)); //This returns wholeNumber + fraction 
+				return wholeNumber + " " + integer;
+				
+			} else {
+				
+				integer = ((n%d) + "/" + (d)); //This creates the fraction
+				return "" + integer; //This returns only the integer
+			
+			};
+
+    };
+};
+
+
+	
 **2)** _(Moderate, 15%)_
 
 Rewrite each block below as the simplest equivalent you can discover.  Your equivalent should produce the same final conditions as the original code given the same initial conditions.
@@ -40,7 +86,6 @@ if ((n - Math.floor(n)) >= .5) {
   i = Math.floor(n);
 }
 ```
-
 
 **b)**
 ```
