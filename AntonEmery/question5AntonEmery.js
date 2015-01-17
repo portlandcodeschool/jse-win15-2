@@ -17,23 +17,24 @@ var cardSuit = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
 
 
 function rank(id) {
-	var rank = Math.floor(id / 4);  
-	return rank;
+	var rankNumber = Math.floor(id / 4);  
+	return rankNumber;
 	}
 
 function suit(id) {
-	var suit = id % 4;
-	return suit; 
+	var suitNumber = id % 4;
+	return suitNumber; 
 }
 
-function color(id) {
-	var cardColor;
-	if (suit(id) >= 0 && suit(id) <= 1) {
-		cardColor == 'red';
-	} else if (suit(id) >= 2 && suit(id) <= 3) {
-		cardColor == 'red';
+function color(suit) {
+	var cardColor = suit(color);
+	if (cardcolor >= 0 && cardColor <= 1) {
+		cardColor = 'red';
+	} else if (cardColor >= 2 && cardColor <= 3) {
+		cardColor = 'black';
 	}
 	return cardColor;
+	
 }
 
 
