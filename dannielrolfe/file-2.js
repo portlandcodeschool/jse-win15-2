@@ -85,13 +85,25 @@ if ((n - Math.floor(n)) >= .5) {
   i = Math.floor(n);
 }
 ```
-
+//This was the first equation I programmed 
 function round (i) {
 	if (i%1 <= .5) {
 		return Math.floor(i);
 	} else {
 		return Math.ceil(i);
 	}
+};
+
+//Second equation I programmed 
+function round (i) {
+	var i = Math.round(i);
+	return(i);
+};
+
+//Third equation I programmed
+
+function round (i) {
+	return Math.round(i);
 };
 
 
@@ -170,13 +182,37 @@ You've just realized that your effort was doomed: neither of your functions can 
 
 **5)** _(Moderate, 35%)_
 
-Imagine that a deck of playing cards is sorted by rank and suit: first all the Aces, then the Twos, etc, with the Kings last.  Within each rank, the suits are in the order Hearts, Diamonds, Spades, Clubs.  Number each card in order from 0 to 51 (i.e. 0=Ace of Hearts; 1=Ace of Diamonds; 51=King of Clubs), and let that ID number represent the corresponding card.  Use this encoding scheme for each part below.
+/*Imagine that a deck of playing cards is sorted by rank and suit: first all the Aces, then the Twos, etc, with the Kings last.  Within each rank, the suits are in the order Hearts, Diamonds, Spades, Clubs.  Number each card in order from 0 to 51 (i.e. 0=Ace of Hearts; 1=Ace of Diamonds; 51=King of Clubs), and let that ID number represent the corresponding card.  Use this encoding scheme for each part below.*/
 
-**a)** Write five related functions to compute different aspects of a card:
+//Hearts, Diamonds, Spades, Clubs
+var suits = [
+    hearts,     //Hearts
+    diamonds,   //Diamonds
+    spades,     //Spades
+    clubs,      //Clubs
+];
+    
+var rank = [
+    ace,    //0 index
+    two,    //1 index
+    three,  //2 index
+    four,   //3 index
+    five,   //4 index
+    six,    //5 index
+    seven,  //6 index
+    eight,  //7 index
+    nine,   //8 index
+    ten,    //9 index
+    jack,   //10 index
+    queen,  //11 index
+    king,   //12 index      
+];
 
-* `rank(id)` returns 1-13, representing the card's rank (for an _id_ between 0-51).
+/**a)** Write five related functions to compute different aspects of a card: */
 
-* `suit(id)` returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
+/* `rank(id)` returns 1-13, representing the card's rank (for an _id_ between 0-51). */
+
+* `suit(id)` returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs). *
 
 * `color(id)` returns "red" or "black".
 
