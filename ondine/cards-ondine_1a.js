@@ -6,6 +6,8 @@
 
 // var width = 4; use variable for varying size grid
 
+var width = 4;
+
 function rank(card) { // --> 1..13
   var width = 4;
   return Math.floor(card/width) + 1;
@@ -35,7 +37,10 @@ function color(card) { // -->"red","black"
 function name(card) { // --> string
   var rankString = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
   var suitString = ["Hearts", "Diamonds", "Spades", "Clubs"];
-  return rankString.item(rank-1) + " of " + suitString.item(suit-1);
+  var rank = Math.floor(card/width);
+  var suit = (card%4);
+  var result = rankString[rank] + " of " + suitString[suit];
+  return result;
 }
 
 // TESTING:
