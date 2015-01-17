@@ -23,14 +23,16 @@ Revisit your solution to homework #1, problem 5, which expresses an improper fra
 
 function fractionString(n, d){
   var rem = n % d;
-  if (n > d && rem == 0) {
-    console.log(Math.floor(n/d));
+  if (d === 0) {
+  return n;
+  } else if (n > d && rem == 0) {
+    return (Math.floor(n/d));
     } else if (n > d) {
-    console.log(Math.floor(n/d) + " " + rem + "/" + d);
+    return (Math.floor(n/d) + " " + rem + "/" + d);
     }  else if (n == d) {
-      console.log(n);
+      return(n);
     } else {  
-         console.log(n + "/" + d);
+         return (n + "/" + d);
   }
 };
 ```
@@ -179,19 +181,8 @@ Write a function `and2(a,b)` which tries to simulate the && operator: it should 
 
 Solution: 
 ```
-function and2(a,b){
-  function checkB(b) {
-    if (b === true){
-      return true;
-    } else {
-      return false;
-    };
-  };
-  if (a === true) {
-    return checkB(b);
-    } else {return false}
-  }
-  ```
+
+```
 
 
 
@@ -248,9 +239,16 @@ Solution:
 **d)**
 You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances.  Explain why, and find an example which demonstrates failure.
 
+
+Examples of failures and why:
+
+a. 
 ```
-Need to come back to this
+and2(@, -)
 ```
+
+Returns Uncaught, unexpected token ILLEGAL. Seems like there could be functions written to prevent the user from inputting illegal characters, especially considering '@ && -' returns the same thing. In general illegal characters are always going to come out this way I think... 
+
 
 ---
 
