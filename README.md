@@ -145,6 +145,31 @@ If you prefer a non-Christmas option, you may choose a different song with simil
 
 ---
 
+
+Solution:
+
+??? - though, I'm not sure if this is right? It says in the homework not to just 
+console.log each line.... and I don't think I did that per se, but I defininitly
+ am console.log'ing the solution, ultimately.)
+
+```
+var days = ["first ", "second ", "third ", "fourth ", "fifth ", "sixth ",
+ "seventh ", "eighth ", "ninth ", "tenth ", "eleventh ", "twelfth "]
+
+var gifts = ["A Partridge in a Pear Tree", "Two Turtles Doves", 
+"Three French Hens", "Four Calling Birds", "Five Golden Rings", 
+"Six Geese a Laying", "Seven Swans a Swimming", "Eight Maids a Milking", 
+"Nine Ladies Dancing", "Ten Lords a Leaping", "Eleven Pipers Piping", 
+"12 Drummers Drumming"]
+
+function singIt(){
+  for (i = 0; i <= days.length - 1; i++) {
+    console.log("On the " + days[i] + "day of Christmas" + '\n'
+     + "my true love sent to me: " + gifts[i] + '\n');
+  };
+}
+```
+
 **4)** _(Difficult, 20%)_
 
 Suppose the '&' key on your keyboard is missing, and you want to be able to continue programming without it.  You decide to simulate the && operator with a function!
@@ -223,10 +248,16 @@ Solution:
 **d)**
 You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances.  Explain why, and find an example which demonstrates failure.
 
+```
+Need to come back to this
+```
+
 ---
 
 
 **5)** _(Moderate, 35%)_
+
+++++++Answers to Problem 5 located on templates+++++++
 
 Imagine that a deck of playing cards is sorted by rank and suit: first all the Aces, then the Twos, etc, with the Kings last.  Within each rank, the suits are in the order Hearts, Diamonds, Spades, Clubs.  Number each card in order from 0 to 51 (i.e. 0=Ace of Hearts; 1=Ace of Diamonds; 51=King of Clubs), and let that ID number represent the corresponding card.  Use this encoding scheme for each part below.
 
