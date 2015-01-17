@@ -1,10 +1,10 @@
 1. 
-	A. function fractionString(n,d) {
+	1A. function fractionString(n,d) {
 		var output = Math.floor(n/d) + ' ' + (n % d) + '/' + d;
 		return output;
 	}
 
-	B. function fractionString(n,d) {
+	1B. function fractionString(n,d) {
 		var wholeNum = Math.floor(n/d);
 		var num = (n % d);
 
@@ -14,10 +14,10 @@
 	}
 
 2.
-	A)((n - Math.floor(n)) >= .5)?(i = Math.ceil(n)):(i = Math.floor(n));
-	B) (!x && ((typeof x) != "boolean"))?(y = false):(y = x);
-	C) for (var count = i; count > 0; count--) { console.log(count); }
-	D) var x;
+	2A. ((n - Math.floor(n)) >= .5)?(i = Math.ceil(n)):(i = Math.floor(n));
+	2B. (!x && ((typeof x) != "boolean"))?(y = false):(y = x);
+	2C. for (var count = i; count > 0; count--) { console.log(count); }
+	2D. var x;
 		if ((B && !A) || (A && !B)) { x = 1; }
 		else if (!A && !B) { x = 2; }
 		else { x = 0; }
@@ -38,21 +38,19 @@
 		gifts[2] = ["Two Turtle Doves", "second"];
 		gifts[1] = ["Partridge in a Pear Tree", "first"];
 		var day;
-		var gifts_received = 1;
 		var output_str = "";
 
 		for (var i = 1; i <= 12; i++) { //loop do go through days
 			output_str += firstLines(gifts[i][1]); //generate the first lines using the custom day in gifts[x][1]
 
-			for (var j = gifts_received; j > 0; j--) { //loop for writing lines(j) for each day(i)
-                if (gifts_received == 1) { //If it's the first day
+			for (var j = i; j > 0; j--) { //loop for writing lines(j) for each day(i)
+                if (i == 1) { //If it's the first day
                      output_str += "A "
                 } else if (j == 1) { //Any other day but with first day's present
                      output_str += "And a "; 
                 }
 				output_str += gifts[j][0] + '\n';
 			}
-			gifts_received++;
 			output_str += '\n';
 		}
         return output_str;
@@ -63,7 +61,7 @@
 	console.log(twelveDays());
 
 4. 
-	A. function and2(a, b) {
+	4A. function and2(a, b) {
 			var same = false;
 			if (a) {
 				if (b) {
@@ -73,7 +71,7 @@
 			return same;
 	   }
 
-	B. function and3(a, b, c) {
+	4B. function and3(a, b, c) {
 			var same = false;
 			if (c) {
 				if (and2(a,b)) {
@@ -83,7 +81,7 @@
 			return same;
 		}
 
-	C. function andN(values) {
+	4C. function andN(values) {
 			var same = true;
 			for (var i = 0; i < values.length; i++) {
 				if (!values[i]) { same = false; break; }
@@ -91,58 +89,107 @@
 			return same;
 		}
 
-	D. _____________________________________
+	4D. _____________________________________
 
 5.
-var suites = ["Hearts", "Diamonds", "Spades", "Clubs"];
-var ranks = new Array();
-ranks[1] = "Ace";
-ranks[11] = "Jack";
-ranks[12] = "Queen";
-ranks[13] = "King";
+			var suites = ["Hearts", "Diamonds", "Spades", "Clubs"];
+			var ranks = new Array();
+			ranks[1] = "Ace";
+			ranks[11] = "Jack";
+			ranks[12] = "Queen";
+			ranks[13] = "King";
 
-var cards = new Array();
+			var cards = new Array();
 
-for (var i = 1; i < ranks.length; i++) {
-	for (var j = 0; j < suites.length; j++) {
-        card = (ranks[i] == undefined)?i:ranks[i];
-		cards.push(card + ' of ' + suites[j]);
+			for (var i = 1; i < ranks.length; i++) {
+				for (var j = 0; j < suites.length; j++) {
+			        card = (ranks[i] == undefined)?i:ranks[i];
+					cards.push(card + ' of ' + suites[j]);
 
-	}
-}
+				}
+			}
 
-function printCards() {
-    for (var c = 0; c < cards.length; c++) {
-        console.log(c + ': ' + cards[c]);
-    }
-}
-
-
-
-function rank(card) { //returns 1-13, representing the card's rank (for an id between 0-51).
-    return Math.floor(card / 4) + 1;
-}
-
-function suit(card) { //returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
-    return (card % 4) + 1;
-}
-
-function cardID(rank,suit) { //returns 0-51, identifying the card id of a given rank and suit.
-
-}
-
-function color(card) { //"red","black" 
-	var b = Math.floor(((card / 2) % 2));
-	return b?'black':'red';
-}
+			function printCards() {
+			    for (var c = 0; c < cards.length; c++) {
+			        console.log(c + ': ' + cards[c]);
+			    }
+			}
 
 
-function name(card) { //returns the full name of the card (e.g. "Four of Diamonds").
-	var suites = ["", "Hearts", "Diamonds", "Spades", "Clubs"];
-	var ranks = new Array();
-	ranks[1] = "Ace";
-	ranks[11] = "Jack";
-	ranks[12] = "Queen";
-	ranks[13] = "King";
-	return ((ranks[rank(card)] == undefined)?rank(card):ranks[rank(card)]) + ' of ' + suites[suit(card)];
-}
+	5A.
+		function rank(card) { //returns 1-13, representing the card's rank (for an id between 0-51).
+		    return Math.floor(card / 4) + 1;
+		}
+
+		function suit(card) { //returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
+		    return (card % 4) + 1;
+		}
+
+		function cardID(rank,suit) { //returns 0-51, identifying the card id of a given rank and suit.
+		    return ((rank - 1) * 4) + suit;
+		}
+
+		function color(card) { //"red","black" 
+			var b = Math.floor(((card / 2) % 2));
+			return b?'black':'red';
+		}
+
+		function name(card) { //returns the full name of the card (e.g. "Four of Diamonds").
+			var suites = ["", "Hearts", "Diamonds", "Spades", "Clubs"];
+			var ranks = new Array();
+			ranks[1] = "Ace";
+			ranks[11] = "Jack";
+			ranks[12] = "Queen";
+			ranks[13] = "King";
+			return ((ranks[rank(card)] == undefined)?rank(card):ranks[rank(card)]) + ' of ' + suites[suit(card)];
+		}
+
+
+	5B.
+		function isInt(n) { return (n%1 === 0); }
+		function inRange(n,a,z) { return ((n >= a) && (n <= z));}
+
+		function rank(card) { //returns 1-13, representing the card's rank (for an id between 0-51).
+		    if (isInt(card)) && (inRange(card,0,51))) {
+		    	return Math.floor(card / 4) + 1;
+		    } else {
+		    	return NaN;
+		    }
+		}
+
+		function suit(card) { //returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
+		    
+		    if (isInt(card)) && (inRange(card,0,51))) {
+		    	return (card % 4) + 1;
+		    } else {
+		    	return NaN;
+		    }
+		}
+
+		function cardID(rank,suit) { //returns 0-51, identifying the card id of a given rank and suit.
+		    return ((rank - 1) * 4) + suit;
+		}
+
+		function color(card) { //"red","black" 
+		    if ((isInt(card)) && (inRange(card,0,51))) {
+				var b = Math.floor(((card / 2) % 2));
+				return b?'black':'red';
+		    } else {
+		    	return NaN;
+		    }
+		}
+
+		function name(card) { //returns the full name of the card (e.g. "Four of Diamonds").
+		    if (isInt(card)) && (inRange(card,0,51))) {
+				var suites = ["", "Hearts", "Diamonds", "Spades", "Clubs"];
+				var ranks = new Array();
+				ranks[1] = "Ace";
+				ranks[11] = "Jack";
+				ranks[12] = "Queen";
+				ranks[13] = "King";
+				return ((ranks[rank(card)] == undefined)?rank(card):ranks[rank(card)]) + ' of ' + suites[suit(card)];
+		    } else {
+		    	return NaN;
+		    }
+		}
+
