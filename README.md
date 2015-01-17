@@ -181,6 +181,18 @@ Write a function `and2(a,b)` which tries to simulate the && operator: it should 
 
 Solution: 
 ```
+function and2(a,b){
+  function checkB(b) {
+    if (b === true){
+      return true;
+    } else {
+      return false;
+    };
+  };
+  if (a === true) {
+    return checkB(b);
+    } else {return false}
+  }
 
 ```
 
