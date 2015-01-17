@@ -28,3 +28,67 @@ function fractionString2(n, d) {
 
     return pf;
 }
+
+// Problem 2-a
+
+/*
+var i;
+if ((n - Math.floor(n)) >= .5) {
+    i = Math.ceil(n);
+} else {
+    i = Math.floor(n);
+}
+*/
+
+var i;
+((n - Math.floor(n)) >=.5) ? i = Math.ceil(n) : i = Math.floor(n);
+
+// Problem 2-b
+
+/*
+ var y, xIsFalse = (x? false : true);
+ if (xIsFalse)
+ y = false;
+ else
+ y = x;
+ */
+
+var y = (x? y = x : y = false);
+
+// Problem 2-c
+
+/*
+ for (var count = 15 - i ; count < 15 ; count=count+1) {
+ i = i-1;
+ console.log(i+1)
+ }
+ */
+
+for (count = 15 - i; count < 15; count++) {
+    i -= 1;
+    console.log(i++);
+}
+
+// Problem 2-d
+
+
+/*
+var x;
+if (a) {
+    if (b) {
+        x = 0;
+    } else {
+        x = 1;
+    }
+} else {
+    if (b) {
+        x = 1;
+    } else {
+        x = 2;
+    }
+}
+*/
+var x;
+(a)? ((b)? x = 0: x = 1) : ((b)? x = 1: x = 2);
+
+
