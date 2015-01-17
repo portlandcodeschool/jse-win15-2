@@ -22,10 +22,9 @@ function cardID(rank,suit) { // --> 0..51
 }
 
 function color(id) { // -->"red","black"
-	var colorCheck = suit(id);
-		if (colorCheck == 1 || colorCheck == 2){
+		if (suit(id) == 1 || suit(id) == 2){
 		return "red";
-	} else if (colorCheck == 3 ||  colorCheck == 4){
+	} else if (suit(id) == 3 ||  suit(id) == 4){
 		return "black";
 	};
 }
