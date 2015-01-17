@@ -162,12 +162,17 @@ var gifts = ["A Partridge in a Pear Tree", "Two Turtles Doves",
 "Three French Hens", "Four Calling Birds", "Five Golden Rings", 
 "Six Geese a Laying", "Seven Swans a Swimming", "Eight Maids a Milking", 
 "Nine Ladies Dancing", "Ten Lords a Leaping", "Eleven Pipers Piping", 
-"12 Drummers Drumming"]
+"Twelve Drummers Drumming"]
+
+  function earlierDays(b){
+    for (g = b-2; g >= 0; g--) {
+      console.log(gifts[g] + ',' + '\n')}
+  };
 
 function singIt(){
-  for (i = 0; i <= days.length - 1; i++) {
+  for ( var i = 0; i <= days.length - 2; i++) {
     console.log("On the " + days[i] + "day of Christmas" + '\n'
-     + "my true love sent to me: " + gifts[i] + '\n');
+     + "my true love sent to me: " + gifts[i] + '\n' + earlierDays(i));
   };
 }
 ```
