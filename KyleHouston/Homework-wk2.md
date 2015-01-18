@@ -168,20 +168,21 @@ If you prefer a non-Christmas option, you may choose a different song with simil
     ];
 
     var whichXMas = [
-      'First', 'Second', 'Third', 'fourth', 'fifth', 'sixth', 'seventh', 'eight', 'nineth', 'tenth', 
-      'eleventh', 'twelfth'
+      'First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eight', 'Nineth', 'Tenth', 
+      'Eleventh', 'Twelfth'
     ];
 
-    var fullSong;
+    var fullSong = '';
 
-    for (var i = 0; i <= 11; i++ ){
-      fullSong += "\nOn the", whichXMas[i] + " day of Christmas my true love sent to me:\n");
+    for (var i = 0; i <= 11; i++) {
+      fullSong += "\nOn the " + whichXMas[i] + " day of Christmas my true love sent to me:\n";
       for (count = i; count >= 0; count--){
-        fullSong += lyrics[i];
+        fullSong += lyrics[count] + '\n';
       }
     }
 
-    return fullSong;
+  return fullSong;
+
   }
 
   console.log(theXMasSong());
@@ -195,7 +196,39 @@ Suppose the '&' key on your keyboard is missing, and you want to be able to cont
 **a)**
 Write a function `and2(a,b)` which tries to simulate the && operator: it should always return the same result as `(a && b)` for any values of _a_ and _b_.  (For example, `and2((0>1),true)` should return _false_.)  But you can't use && itself within your function!
 
+```javascript
+  function and2(a,b) {
+    if (a == true) {
+      if (b == true){
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+```
+
 **b)** Write another function `and3(a,b,c)` which tries to simulate a double-&& operator: it should always return the same result as `(a && b && c)` for any values of a,b,c.  (For example, `and3((1>0),(0>1),true)` should return _false_.)  As before, you're not allowed to use && itself. Remember that you can call functions from functions!
+
+```javascript
+  function and3(a,b,c) {
+    if (a == true) {
+      if (b == true) {
+        if (c == true) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+```
 
 **c)**
 Now generalize your function to handle any number of values.  You will learn better ways eventually, but for now use an array to store all the values.
@@ -204,6 +237,26 @@ If the argument you provide when calling the function holds values [a,b,c...z], 
 `andN(26,[a,b,c...z])`, the function should return the same result as `(a && b && c && ... z)`.
 Make sure to handle two special cases: length 0 (then return _true_) and length 1 (then return that single value).
 Again, don't use &&.
+
+```javascript
+
+  function andN(values) {
+    if (values.length == 0) {
+      return true;
+    } else if (values.length == 1) {
+      return values[0];
+    }
+
+    for (i = 0; i <= values.length; i++) {
+      if (values[i] == false) {
+        return false;
+      } 
+    }
+
+  return true;
+  }
+
+```
 
 **d)**
 You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances.  Explain why, and find an example which demonstrates failure.
@@ -219,13 +272,112 @@ Imagine that a deck of playing cards is sorted by rank and suit: first all the A
 
 * `rank(id)` returns 1-13, representing the card's rank (for an _id_ between 0-51).
 
+```javascript
+  function rank(id) {
+    var cardRank = Math.ceil(id/4);
+    if ((id % 4) == 0) {
+      cardRank++;
+    }
+    return cardRank;
+  }
+```
+
 * `suit(id)` returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
+
+
+```javascript
+  function suit(id) {
+    switch (id % 4) {
+      case 0:
+        return "Hearts";
+      case 1:
+        return "Diamonds";
+      case 2:
+        return "Spades";
+      case 3:
+        return "Clubs";
+    }
+  }
+```
 
 * `color(id)` returns "red" or "black".
 
+
+```javascript
+  function color(id) {
+    switch (suit(id)) {
+      case "Hearts":
+      case "Diamonds":
+        return "Red";
+      case "Spades":
+      case "Clubs":
+        return "Black";
+    }
+  }
+```
+
+
 * `name(id)` returns the full name of the card (e.g. "Four of Diamonds").
 
+```javascript
+    function name(id) {
+      var cardRank, cardName;
+
+      switch (rank(id)) {
+        case 1:
+          cardRank = "Ace";
+          break;
+        case 2:
+          cardRank = "Two";
+          break;
+        case 3:
+          cardRank = "Three";
+          break;
+        case 4:
+          cardRank = "Four";
+          break;
+        case 5:
+          cardRank = "Five";
+          break;
+        case 6:
+          cardRank = "Six";
+          break;
+        case 7:
+          cardRank = "Seven";
+          break;
+        case 8:
+          cardRank = "Eight";
+          break;
+        case 9:
+          cardRank = "Nine";
+          break;
+        case 10:
+          cardRank = "Ten";
+          break;
+        case 11:
+          cardRank = "Jack";
+          break;
+        case 12:
+          cardRank = "Queen";
+          break;
+        case 13:
+          cardRank= "King";
+          break;
+      }
+
+      return cardName = cardRank + ' of ' + suit(id);
+    }
+```
+
 * `cardID(rank,suit)` returns 0-51, identifying the card id of a given rank and suit.
+
+<script type="text/javascript">
+```javascript
+  function cardID(rank,suit) {
+    
+  }
+```
+</script>
 
 Assume each function is given valid arguments (i.e. the args are integers in the appropriate range).
 Your functions may call each other-- for example: _color_ could be derived from _suit_. Try to reuse functions to avoid duplicating code.
