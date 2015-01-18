@@ -16,28 +16,29 @@ var cardRank = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six',
 var cardSuit = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
 
 
-function rank(row) {
-	var rankNumber = Math.floor(row / 4);  
+function rank(id) {
+	var rankNumber = Math.floor(id / 4);  
 	return rankNumber;
 	}
 
-function suit(column) {
-	var suitNumber = column % 4;
+function suit(id) {
+	var suitNumber = id % 4;
 	return suitNumber; 
 }
 
-function color(color) {
+function color(color) {  
 	var cardColor = suit(color);
-	if (cardcolor >= 0 && cardColor <= 1) {
+	if (cardColor >= 0 && cardColor <= 1) {
 		cardColor = 'red';
 	} else if (cardColor >= 2 && cardColor <= 3) {
 		cardColor = 'black';
 	}
 	return cardColor;
-	
 }
 
-function name (id) {
-
+function name(id) {
+	var cardName = rank(id);
+	var cSuit = suit(id);
+	console.log(cardRank[cardName] + ' of ' + cardSuit[cSuit]);
 }
 
