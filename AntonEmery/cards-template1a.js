@@ -9,12 +9,12 @@ var cardSuit = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
 
 
 function rank(id) {  //return 1-13
-	var rankNumber = Math.ceil((id + 1) / 4); 
+	var rankNumber = Math.ceil((id + 1) / 4); //rank number is one more than array index since arrays start at 0 but ranks starts at 1
 	return rankNumber;
 	}
 
 function suit(id) { // --> 1..4
-	var suitNumber = (id % 4) + 1;
+	var suitNumber = (id % 4) + 1; //suit number is one more than array index
 	return suitNumber; 
 }
 
@@ -36,7 +36,8 @@ function color(cardID) {   // red or black
 function name(id) {
 	var cardName = rank(id);
 	var cSuit = suit(id);
-	console.log(cardRank[cardName] + ' of ' + cardSuit[cSuit]);
+	var fullName = (cardRank[cardName - 1] + ' of ' + cardSuit[cSuit - 1]);
+	return fullName;
 }
 
 
