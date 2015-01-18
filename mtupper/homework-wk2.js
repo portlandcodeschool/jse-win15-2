@@ -144,3 +144,40 @@ function twelveDaysOfXmas() {
     console.log(lyrics);
     return lyrics;
 }
+
+// Problem 4a
+
+function and2(a,b) {
+    if (a === true) {
+        if (b === true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
+}
+
+// Problem 4b
+
+function and3(a,b,c) {
+    if (a === true) {
+        if (b === true) {
+            if (c === true) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
+}
