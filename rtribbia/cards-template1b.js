@@ -81,6 +81,11 @@ assert(color(2)==='black', "Test 11 failed");
 assert(name(5)==='Two of Diamonds', "Test 12 failed");
 assert(name(51)==='King of Clubs',  "Test 13 failed");
 
+//5C
+assert(suit(23)===4, "Test 14 failed");
+assert(cardID(11,1)===40,   "Test 15 failed");
+assert(name(24)==='Seven of Hearts', "Test 16 failed");
+
 
 // Extra testing!
 // These tests check that invalid arguments produce invalid output.
@@ -111,4 +116,9 @@ assert(Number.isNaN(name(false)),   "Test 43 failed");
 assert(Number.isNaN(name(-1)),      "Test 44 failed");
 assert(Number.isNaN(name(52)),      "Test 45 failed");
 assert(Number.isNaN(name(NaN)),     "Test 46 failed");
+
+//5C
+assert(Number.isNaN(rank(Infinity)),     "Test 47 failed");
+assert(Number.isNaN(suit(-Infinity)),     "Test 48 failed");
+assert(Number.isNaN(cardID('','')),     "Test 49 failed");
 
