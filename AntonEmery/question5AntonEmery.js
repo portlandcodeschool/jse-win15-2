@@ -17,7 +17,7 @@ var cardSuit = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
 
 
 function rank(id) {
-	var rankNumber = Math.floor(id / 4);  
+	var rankNumber = Math.floor(id / 4); 
 	return rankNumber;
 	}
 
@@ -41,4 +41,11 @@ function name(id) {
 	var cSuit = suit(id);
 	console.log(cardRank[cardName] + ' of ' + cardSuit[cSuit]);
 }
+
+function cardID(a, b) {                   //rank suit
+	var cardNumber = (13 * rank(a)) + suit(b);
+	return cardNumber;
+	
+}
+
 
