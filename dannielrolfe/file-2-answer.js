@@ -96,30 +96,52 @@ var rankArray = [
 
 //5a
 
-
 function rank(id) { //This function returns the rank Ace to King
     rankNumber = rankArray[id]; 
     return rankNumber;
 };
+
+//5b
 
 function suit(id) { //This function returns the suite
     suitReturn = suitsArray[id];
     return suitReturn;
 };
 
+//5c -------- HELP
 function color(id) {
-    if (suitsArray[id] >= 1 ) { //This if statement checks if id is equal to less than 1
+    if (suitsArray[id] === 0 || 2  ) { //This if statement checks if id is equal to less than 1
         console.log(suitsArray[id]);
         colorValue = "Red"
-    } else if (suitsArray[id] >= 3 ) { //This if statement checks if id is equal to less than 3
+        
+    } else if (suitsArray[id] === 1 || 2 ) { //This if statement checks if id is equal to less than 3
         colorValue = "Black";
+        
     } else {
-        colorValue = "Does not exist"; //This statements checks if id is greater than 3 
-    };
+        colorValue = "Does not exist"; //This statements checks if id is greater than 3
+    }
     
     return colorValue;
+}; 
     
+    
+//5e
+function name(id, id) {
+    suitReturn = suitsArray[id];
+    rankNumber = rankArray[id];
+    return rankNumber + " of " + suitReturn;  
 };
+
+
+//5f
+
+function cardID(rank,suit) {
+    suitReturn = suitsArray[suit];
+    rankNumber = rankArray[rank];
+    return rankNumber + " of " + suitReturn;
+};
+
+
 
 
 
