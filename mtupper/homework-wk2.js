@@ -92,3 +92,55 @@ var x;
 (a)? ((b)? x = 0: x = 1) : ((b)? x = 1: x = 2);
 
 
+// Problem 3 - Twelve Days of Christmas
+
+function twelveDaysOfXmas() {
+
+    var opener = " day of Christmas\nMy true love gave to me:\n"
+
+    var dayCount = [
+        "first",
+        "second",
+        "third",
+        "fourth",
+        "fifth",
+        "sixth",
+        "seventh",
+        "eighth",
+        "ninth",
+        "tenth",
+        "eleventh",
+        "twelfth"
+    ];
+
+    var gifts = [
+        "Partridge in a Pear Tree\n\n",
+        "Two Turtle Doves\n",
+        "Three French Hens\n",
+        "Four Calling Birds\n",
+        "Five Golden Rings\n",
+        "Six Geese a Laying\n",
+        "Seven Swans a Swimming\n",
+        "Eight Maids a Milking\n",
+        "Nine Ladies Dancing\n",
+        "Ten Lords a Leaping\n",
+        "Eleven Pipers Piping\n",
+        "Twelve Drummers Drumming\n"
+    ];
+
+    var lyrics;
+    var giftCount=[];
+
+    for (i = 0; i < dayCount.length; i++) {
+        if (i === 0) {
+            lyrics = "On the " + dayCount[i] + opener + "A " + gifts[i];
+        }
+        else {
+            giftCount.unshift(gifts[i]);
+            lyrics += "On the " + dayCount[i] + opener + giftCount + "And a " + gifts[0];
+        }
+    }
+
+    console.log(lyrics);
+    return lyrics;
+}
