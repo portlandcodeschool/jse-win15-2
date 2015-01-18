@@ -2,23 +2,29 @@
 
 // function()--> possible return values
 
-function rank(id) { // --> 1..13
-	var rankNumber = Math.floor(id / 4); 
+var cardRank = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 
+			  'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
+
+var cardSuit = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
+
+
+function rank(id) {  //return 1-13
+	var rankNumber = Math.ceil((id + 1) / 4); 
 	return rankNumber;
-}
+	}
 
 function suit(id) { // --> 1..4
-	var suitNumber = id % 4;
+	var suitNumber = (id % 4) + 1;
 	return suitNumber; 
 }
 
 function cardID(cardRank, cardSuit) {     //0...51             
-	var cardNumber = (4 * cardRank) + cardSuit; //4 is number of columns
+	var cardNumber = (4 * (cardRank - 1)) + (cardSuit - 1); //4 is number of columns
 	return cardNumber;
 	}
 
-function color(color) {   // red or black
-	var cardColor = suit(color);
+function color(cardID) {   // red or black
+	var cardColor = suit(cardID);
 	if (cardColor >= 0 && cardColor <= 1) {
 		cardColor = 'red';
 	} else if (cardColor >= 2 && cardColor <= 3) {
@@ -32,6 +38,7 @@ function name(id) {
 	var cSuit = suit(id);
 	console.log(cardRank[cardName] + ' of ' + cardSuit[cSuit]);
 }
+
 
 
 // TESTING:

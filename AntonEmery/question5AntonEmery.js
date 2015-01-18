@@ -17,7 +17,7 @@ var cardSuit = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
 
 
 function rank(id) {
-	var rankNumber = Math.floor(id / 4); 
+	var rankNumber = Math.round((id + 1) / 4); 
 	return rankNumber;
 	}
 
