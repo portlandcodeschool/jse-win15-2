@@ -42,10 +42,9 @@ function name(id) {
 	console.log(cardRank[cardName] + ' of ' + cardSuit[cSuit]);
 }
 
-function cardID(a, b) {                   //rank suit
-	var cardNumber = (13 * rank(a)) + suit(b);
+function cardID(cardRank, cardSuit) {                   
+	var cardNumber = (4 * cardRank) + cardSuit; //4 is number of columns
 	return cardNumber;
-	
-}
+	}
 
 
