@@ -13,7 +13,10 @@ var gifts = ['A Partridge in a Pear Tree', '2 Turtle Doves', '3 French Hens', '4
 for(var i = 0; i < 12; i++) {
 	console.log('On the ' + days[i] + ' day of Christmas my true love gave to me');
 	console.log(gifts[i]);
-	//if gifts[i] > 0
-		//counter = gifts[i]; counter >= 0; counter--
-		//print gifts[counter]
-	};
+		if (gifts.indexOf(gifts[i]) > 0){
+			for(counter = gifts.indexOf(gifts[i]); counter >= 0; counter--) {
+					console.log(gifts[counter-1]);
+			}
+	}
+
+};
