@@ -113,3 +113,12 @@ assert(Number.isNaN(name(-1)),      "Test 44 failed");
 assert(Number.isNaN(name(52)),      "Test 45 failed");
 assert(Number.isNaN(name(NaN)),     "Test 46 failed");
 
+//My assertions
+//Testing for Success
+assert(cardSuit.length !== 4,'Test 47 passed!');
+assert(cardRank[0] !== 'Ace', 'Test 48 passed!');
+assert(cardSuit.indexOf('Spades') !== 2, 'Test 49 passed!');
+
+//Testing for Failure
+
+
