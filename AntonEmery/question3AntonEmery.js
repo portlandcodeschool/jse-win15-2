@@ -17,6 +17,7 @@ for(var i = 0; i < 12; i++) {
 			for(counter = gifts.indexOf(gifts[i]); counter >= 0; counter--) {
 					console.log(gifts[counter-1]);
 			}
-	}
-
+		}
 };
+
+//I know this is not exactly the format you want. as far as i could get right now
