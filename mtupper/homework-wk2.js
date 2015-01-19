@@ -181,3 +181,135 @@ function and3(a,b,c) {
         return false;
     }
 }
+
+// Problem 4c
+
+function andN(values) {
+    var v = [];
+
+    if (values.length === 0) {
+        return true;
+    }
+
+    if (values.length === 1) {
+        return (values);
+    }
+
+    for (i =0; i < values.length; i++) {
+        if (values[i] !== true) {
+            return false;
+        }
+        else {
+            v.push(true);
+        }
+    }
+
+    if (v.length === values.length) {
+        return true;
+    }
+}
+
+// Problem 4d
+
+// Work on answer here
+
+
+// A = 0,1,2,3
+// 2 = 4,5,6,7
+// 3 = 8,9,10,11
+
+// Problem 5a
+
+function rank(id) {
+    var r = Math.floor(id / 4) + 1;
+    return r;
+    console.log(r);
+}
+
+function suit(id) {
+    var s = (id % 4) + 1;
+    return s;
+    console.log(s);
+}
+
+function color(id) {
+    var c;
+    var x = (id % 4) + 1;
+    if (x === 1 || x === 2) {
+        c = "red";
+    }
+    else {
+        c = "black";
+    }
+    return c;
+    console.log(c);
+}
+
+function name(id) {
+    var rankText;
+    var suitText;
+
+    switch(rank(id)) {
+        case 1:
+            rankText = "Ace of ";
+            break;
+        case 2:
+            rankText = "Two of ";
+            break;
+        case 3:
+            rankText = "Three of ";
+            break;
+        case 4:
+            rankText = "Four of ";
+            break;
+        case 5:
+            rankText = "Five of ";
+            break;
+        case 6:
+            rankText = "Six of ";
+            break;
+        case 7:
+            rankText = "Seven of ";
+            break;
+        case 8:
+            rankText = "Eight of ";
+            break;
+        case 9:
+            rankText = "Nine of ";
+            break;
+        case 10:
+            rankText = "Ten of ";
+            break;
+        case 11:
+            rankText = "Jack of ";
+            break;
+        case 12:
+            rankText = "Queen of ";
+            break;
+        case 13:
+            rankText = "King of ";
+            break;
+    }
+
+    switch(suit(id)) {
+        case 1:
+            suitText = "Hearts";
+            break;
+        case 2:
+            suitText = "Diamonds";
+            break;
+        case 3:
+            suitText = "Spades";
+            break;
+        case 4:
+            suitText = "Clubs";
+            break;
+    }
+    return rankText + suitText;
+    console.log(rankText + suitText);
+}
+
+function cardID(rank, suit) {
+    var cid = (rank * 4) - (5 - suit);
+    return cid;
+}
