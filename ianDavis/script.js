@@ -157,7 +157,7 @@ getAllPrevious(12, daysOfXmas).join(", \n");// correct input for 12th day
 //4
 //a
 function and2(a,b){
-
+	return a && b;
 }
 
 function q4a(){
@@ -165,7 +165,7 @@ function q4a(){
 	var testCasesB = ["string", "1", true, false, Infinity, 20, undefined, NaN];
 	for (var x = 0, lengthA = testCasesA.length; x < lengthA; x++) {
 		for (var y = 0, lengthB = testCasesB; y < lengthB; y++){
-			var result = x && y;
+			var result = and2(x,y);
 		}
 	}
 		console.log("When a is " + testCasesA[x] + ", a" + " is " + testCasesB[y])+ "the result is " + result;
@@ -213,6 +213,9 @@ function suit(id) {
 function color(id) {
 	//color(id) returns "red" or "black"
 	//hearts red, diamonds red,
+	if (typeof id === 'string' || id === true){
+		return NaN;
+	}
 	var color = suit(id);
 	if (color > 1) {
 		return "black";
@@ -223,12 +226,21 @@ function color(id) {
 }
 
 function name(id) {
+	if ( id > 51 || id < 0 || typeof id === 'string' || id == false || id % 1 !== 0 || id === undefined) {
+		return NaN;
+	}
 	return CARDS[id];
 	//return RANKS[rank(id)] + " of " + SUITES[suit(id)]; 
 }
 
 function cardID(rank, suit) {
 	//returns 0-51, identifying the card id of a given rank and suit.
+	if (rank > 13 || rank < 1 || typeof rank == 'string' || typeof rank === 'boolean'|| rank % 1 !== 0){
+		return NaN;
+	} 
+	if (suit > 4 || suit % 1 !== 0) {
+		return NaN;
+	}
 	var rankString = RANKS[rank-1], suitString = SUITES[suit-1];
 	return SUITES.length * RANKS.indexOf(rankString) + SUITES.indexOf(suitString);
 	//return SUITES.length * RANKS.indexOf(rank) + SUITES.indexOf(suit);**works**
@@ -280,6 +292,7 @@ assert(Number.isNaN(cardID(14,1)), "Test 34 failed");
 assert(Number.isNaN(cardID(-1,-1)), "Test 35 failed");
 assert(Number.isNaN(cardID(0.5,1)), "Test 36 failed");
 assert(Number.isNaN(cardID(1,NaN)), "Test 37 failed");
+
 assert(Number.isNaN(color('apple')),"Test 41 failed");
 assert(Number.isNaN(color(true)), "Test 42 failed");
 
