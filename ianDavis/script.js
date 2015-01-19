@@ -80,9 +80,29 @@ for (var count = 15 - i ; count < 15 ; count=count+1) {
 
 //simplified as:
 for (var count = 15 - i; count < 15; count++){
-	i--;
-	console.log(i+1)
+	console.log(i);
 }
+
+//d
+var x;
+if (a) {
+   if (b) {
+     x = 0;
+   } else {
+     x = 1;
+   }
+} else {
+  if (b) {
+    x = 1;
+  } else {
+    x = 2;
+  }
+}
+
+//simplified as:
+x =  2 if a || b 
+x = 0 if a && b
+x = 1 if b || a
 
 
 //3
@@ -106,9 +126,10 @@ function numberSuffix(number){
 }
 
 function getAllPrevious(current, myArr) {
-    var currentIndex = myArr.indexOf(current);
+    //var currentIndex = myArr.indexOf(current);
     //return i > -1 ? myArr.slice(0, i) : [];
     if (current < myArr.length +1 ){
+    	myArr[0] = "and " + myArr[0];
     	return myArr.slice(0, current).reverse();
     }
 }
@@ -116,47 +137,40 @@ function getAllPrevious(current, myArr) {
 
 
 function twelveDays(){
-	var daysOfXmas = ["1 partridge in a pear tree", "turtle doves", "French hens", "calling birds", "golden rings", "geese a-laying", "swans a-swimming", "maids a-milking", "ladies dancing", "lords a-leaping", "drummers drumming", "pipers piping"];
+	var daysOfXmas = ["a partridge in a pear tree", "two turtle doves", "three French hens", " four calling birds", "five golden rings", "six geese a-laying", "seven swans a-swimming", "eight maids a-milking", "nine ladies dancing", "ten lords a-leaping", "eleven drummers drumming", "twelve pipers piping"];
 
 	for (var i = 1, length = daysOfXmas.length; i <= length; i++){
-        //for (var j = i -1; j > 1; j--){
-				var currentVerse = getAllPrevious(i, daysOfXmas);
+        		var currentVerse = getAllPrevious(i, daysOfXmas);
 				var refrain = "On the " + numberSuffix(i) + " day of Christmas,\n my true love sent to me\n" + 
-						i + " " + daysOfXmas[i-1] + " " + currentVerse.join(", \n");
-						//console.log(j);
-	//}
+				" " + currentVerse.join(", \n");
+						
 		console.log(refrain);
 		
 	}
 
 }
 
+
 getAllPrevious(12, daysOfXmas).join(", \n");// correct input for 12th day
 
 
-//currently outputs the following for day 12:
-// "On the 12th day of Christmas,
-//  my true love sent to me
-// 12 pipers piping pipers piping, 
-// drummers drumming, 
-// lords a-leaping, 
-// ladies dancing, 
-// maids a-milking, 
-// swans a-swimming, 
-// geese a-laying, 
-// golden rings, 
-// calling birds, 
-// French hens, 
-// turtle doves, 
-// 1 partridge in a pear tree"
+//4
+//a
+function and2(a,b){
 
+}
 
-
-
-
-
-
-
+function q4a(){
+	var testCasesA = ["string", "1", true, false, Infinity, 20, undefined, NaN];
+	var testCasesB = ["string", "1", true, false, Infinity, 20, undefined, NaN];
+	for (var x = 0, lengthA = testCasesA.length; x < lengthA; x++) {
+		for (var y = 0, lengthB = testCasesB; y < lengthB; y++){
+			var result = x && y;
+		}
+	}
+		console.log("When a is " + testCasesA[x] + ", a" + " is " + testCasesB[y])+ "the result is " + result;
+	};
+}
 
 //5
 
@@ -181,12 +195,18 @@ var CARDS = createCardDeck();
 function rank(id) {
 	//rank(id) returns 1-13, representing the card's rank (for an id between 0-51).
 	//return RANKS[Math.floor(id/SUITES.length)]; this returns rank name 
+	if ( id > 51 || id < 0 || typeof id === 'string' || id % 1 !== 0 || id === undefined) {
+		return NaN;
+	}
 	return Math.floor(id/SUITES.length) + 1; //return RANKS index number
 }
 
 function suit(id) {
 	//suit(id) returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
 	//return SUITES[id % SUITES.length]// return suit name
+	if ( id > 51 || id < 0 || typeof id === 'boolean' || id % 1 !== 0 || id === undefined) {
+		return NaN;
+	}
 	return id % SUITES.length + 1; // returns suit index number
 }
 
@@ -234,3 +254,36 @@ assert(color(0)==='red', "Test 10 failed");
 assert(color(2)==='black', "Test 11 failed");
 assert(name(5)==='Two of Diamonds', "Test 12 failed");
 assert(name(51)==='King of Clubs', "Test 13 failed");
+
+//b
+// create filters within the functions in 'a' which return NaN if input is wrongrange or type.
+
+// Extra testing!
+// These tests check that invalid arguments produce invalid output.
+// I.e. "garbage in guarantees garbage out".
+assert(Number.isNaN(rank(52)), "Test 21 failed");
+assert(Number.isNaN(rank("0")), "Test 22 failed");
+assert(Number.isNaN(rank(-1)), "Test 23 failed");
+assert(Number.isNaN(rank(2.5)), "Test 24 failed");
+assert(Number.isNaN(rank(undefined)),"Test 25 failed");
+
+assert(Number.isNaN(suit(52)), "Test 26 failed");
+assert(Number.isNaN(suit(false)),"Test 27 failed");
+assert(Number.isNaN(suit(true)), "Test 28 failed");
+assert(Number.isNaN(suit(-1)), "Test 29 failed");
+assert(Number.isNaN(suit(3.14)), "Test 30 failed");
+
+assert(Number.isNaN(cardID(0,1)), "Test 31 failed");
+assert(Number.isNaN(cardID("1",1)), "Test 32 failed");
+assert(Number.isNaN(cardID(1,5)), "Test 33 failed");
+assert(Number.isNaN(cardID(14,1)), "Test 34 failed");
+assert(Number.isNaN(cardID(-1,-1)), "Test 35 failed");
+assert(Number.isNaN(cardID(0.5,1)), "Test 36 failed");
+assert(Number.isNaN(cardID(1,NaN)), "Test 37 failed");
+assert(Number.isNaN(color('apple')),"Test 41 failed");
+assert(Number.isNaN(color(true)), "Test 42 failed");
+
+assert(Number.isNaN(name(false)), "Test 43 failed");
+assert(Number.isNaN(name(-1)), "Test 44 failed");
+assert(Number.isNaN(name(52)), "Test 45 failed");
+assert(Number.isNaN(name(NaN)), "Test 46 failed");
