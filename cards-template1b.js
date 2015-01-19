@@ -1,20 +1,77 @@
 // Error-detecting version
+var cardName = [
+	'Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King' 
+];
+
+var suitName = [
+	'Hearts', 'Diamonds', 'Spades', 'Clubs'
+];
 
 function rank(card) {
+	if (!isValid(card, 0, 51)){
+		return NaN;
+	}
+
+	var cardRank = Math.ceil(card/4);
+    if ((card % 4) == 0) {
+    	cardRank++;
+    }
+
+    return cardRank;
 }
 
 function suit(card) {
+	if (!isValid(card, 0, 51)){
+		return NaN;
+	}
+
+	cardSuit = (card % 4) + 1;
+	return cardSuit;
 }
 
 function cardID(rank,suit) {
+	if (!isValid(rank, 1, 13)){
+		return NaN;
+	}
+
+	if (!isValid(suit, 1, 4)){
+		return NaN;
+	}
+    var id = ((rank * 4) - 5) + suit;
+    return	id;
 }
 
 function color(card) {
+	if (!isValid(card, 0, 51)){
+		return NaN;
+	}
+
+	var cardColor;
+	if ((suit(card) == 1) || (suit(card) == 2)) {
+		cardColor = "red";	
+	} else if ((suit(card) == 3) || (suit(card) == 4)){
+		cardColor = "black";
+	};
+
+	return cardColor;
 }
 
 function name(card) {
+	if (!isValid(card, 0, 51)){
+		return NaN;
+	}
+
+	var whatCard;
+	return whatCard = cardName[(rank(card) - 1)] + ' of ' + suitName[(suit(card) - 1)];
 }
 
+function isValid(n, min, max){
+	if ((n % 1 != 0) || (n < min) || (n > max ) || (typeof(n) != 'number')){
+		return false;
+	} else {
+		return true;
+	}
+}
 
 
 // TESTING:
