@@ -371,13 +371,28 @@ Imagine that a deck of playing cards is sorted by rank and suit: first all the A
 
 * `cardID(rank,suit)` returns 0-51, identifying the card id of a given rank and suit.
 
-<script type="text/javascript">
+
 ```javascript
   function cardID(rank,suit) {
-    
+    var id = (rank * 4) - 4;
+
+    if (suit === "Hearts"){
+      return id;
+    } else if (suit === "Diamonds") {
+      id += 1;
+      return id;
+    } else if (suit === "Spades") {
+      id += 2;
+      return id;
+    } else if (suit === "Clubs") {
+      id += 3;
+      return id;
+    }
   }
+
+  console.log(cardID(6,'Spades'));
 ```
-</script>
+
 
 Assume each function is given valid arguments (i.e. the args are integers in the appropriate range).
 Your functions may call each other-- for example: _color_ could be derived from _suit_. Try to reuse functions to avoid duplicating code.

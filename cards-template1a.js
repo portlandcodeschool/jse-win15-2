@@ -1,20 +1,46 @@
 // Simple version (no error-detection)
 
 // function()--> possible return values
+var cardName = [
+	'Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King' 
+];
+
+var suitName = [
+	'Hearts', 'Diamonds', 'Spades', 'Clubs'
+];
 
 function rank(card) { // --> 1..13
+    var cardRank = Math.ceil(card/4);
+    if ((card % 4) == 0) {
+    	cardRank++;
+    }
+    return cardRank;
 }
 
 function suit(card) { // --> 1..4
+	cardSuit = (card % 4) + 1;
+	return cardSuit;
 }
 
 function cardID(rank,suit) { // --> 0..51
+    var id = ((rank * 4) - 5) + suit;
+    return	id;
 }
 
 function color(card) { // -->"red","black"
+	var cardColor;
+	if ((suit(card) == 1) || (suit(card) == 2)) {
+		cardColor = "red";	
+	} else if ((suit(card) == 3) || (suit(card) == 4)){
+		cardColor = "black";
+	};
+
+	return cardColor;
 }
 
 function name(card) { // --> string
+	var whatCard;
+	return whatCard = cardName[(rank(card) - 1)] + ' of ' + suitName[(suit(card) - 1)];
 }
 
 
