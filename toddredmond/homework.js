@@ -94,16 +94,59 @@ function and2(a,b){
         }
 
         and2((0<1),true);
-*/        
+   
+
+function and3(a,b,c){
+          if (a == false || b == false || c == false) {
+          return false;
+          }
+          else {
+            return true;
+          }
+        }
+
+        and3((1>0),(0>1),true)
+
+//4c
+
+function andN(){
+  var values = [];
+ 
+  for (var i =0; i < arguments.length; i++) { // loops through passed values to enter in empty array
+    values.push(arguments[i]); // adds values to array
+    
+  } // end of for loop
+  
+  if (values.length === 0) { // test for zero value
+      return true;
+     } else {
+  		for (var i = 0; i < values.length; i++) { // loop for testing values
+          if (values[i] === false) { // tests values to verify if any value is false
+          	return false; // exits function if any of the values test false
+          } 
+        } 
+  return true; // exits function with true value if no value tested false.
+} // end of condition for zero value
+} // end of function
+
+//andN((0<1), (3>4));
+//andN(true,false, true, false)
+//andN()
+
+//4d 
+/*
+I am sure of a specific situation that would cause the function to fail that isn't because of poor comparisions
+for the values passed. For instance (0 == '0' would pass the test but this is not a fault of the function. Error testing 
+could prevent this from occurring and pass back an error message to the user. I will say that the first function is a cumbersome
+way to handle avoiding an && statement.)
+*/    
 //5a
 
 
 // Simple version (no error-detection)
-
 // function()--> possible return values
 
-function name(card) { // --> string
-}
+
 var cRank = ['Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Jack','Queen','King'];
 var cSuit = ['Hearts','Diamonds','Spades','Clubs'];
 var id;
@@ -111,20 +154,54 @@ var rankloc;
 var suitloc;
 
 function cardID(rankloc, suitloc) {
- id = ((rankloc-1)*4 + suitloc)-1;
- return id;
-}
+  
+  if (rankloc === false || rankloc === true || typeof rankloc !='number' 
+      || suitloc === false || suitloc === true || typeof suitloc !='number') {
+      return NaN;
+  } else if (rankloc > 0 && rankloc <= 13 && rankloc % 1 === 0 
+             && suitloc >= 0 && suitloc <= 4 && suitloc % 1 === 0 ) {
+      id = ((rankloc-1)*4 + suitloc)-1;
+      return id;
+  } else {
+      return NaN;
+    }
+
+} 
+
 
 function suit(id) {
- suitid = cSuit[id%4];
- suitnum = (cSuit.indexOf(suitid))+1; 
- return suitnum;
+ 
+  if (id === false || id === true || typeof id !='number') {
+    return NaN;
+  } else if (id >= 0 && id <= 51 && id % 1 === 0) {
+      suitid = cSuit[id%4];
+      suitnum = (cSuit.indexOf(suitid))+1;
+      return suitnum;
+    } else {
+      return NaN;
+    }
 }
 
 function rank(id) {
-	rankid = Math.floor((id/4)+1);
-  //var rankname = cRank[rankid];
-	return rankid;
+  //console.log(id);
+  
+  if (id === false || id === true || typeof id != 'number') { 
+   // return rankid;
+    return NaN;
+  }
+  else if (id >= 0 && id <= 51 && id % 1 === 0) {
+    
+    rankid = Math.floor((id/4)+1);
+    //var rankname = cRank[rankid];
+  //if (rankid%1 !=0 || rankid < 1 || rankid > 13) {
+  //if (rankid%1===0 && rankid > 0 && rankid < 13) {
+    return rankid;
+  
+  } else {
+    return NaN
+  }
+  
+	
 }
 
 /*function color(id) {
@@ -138,6 +215,9 @@ function rank(id) {
 } */
 
 function color(id) {
+  if (id === false || id === true || typeof id != 'number') {
+    return NaN;
+  } else {
 	if (id%4 < 2) {
 		colorname = "Red";
     colorname = colorname.toLowerCase();
@@ -146,17 +226,24 @@ function color(id) {
     colorname = colorname.toLowerCase();
 	}
 	return colorname;
+  }
 }
 
 function name(id) {
-	
+  if (id === false || id === true || typeof id != 'number') {
+    return NaN;
+  } else if (id >= 0 && id <= 51 && id % 1 === 0) {
   var ranknum = rank(id)-1
   var rankname = cRank[ranknum]
   var suitnum = suit(id) - 1;
   var suitname = cSuit[suitnum];
   nameid = rankname + " of " + suitname;
   return nameid;
+  }  else {
+    return NaN
+  }
 }
+
 
        // TESTING:
 function assert(claim,message) {
@@ -176,3 +263,41 @@ assert(color(2)==='black', "Test 11 failed");
 assert(name(5)==='Two of Diamonds', "Test 12 failed");
 assert(name(51)==='King of Clubs',  "Test 13 failed");
 
+// Extra testing!
+// These tests check that invalid arguments produce invalid output.
+// I.e. "garbage in guarantees garbage out".
+assert(Number.isNaN(rank(52)),  "Test 21 failed");
+assert(Number.isNaN(rank("0")), "Test 22 failed");
+assert(Number.isNaN(rank(-1)),  "Test 23 failed");
+assert(Number.isNaN(rank(2.5)), "Test 24 failed");
+assert(Number.isNaN(rank(undefined)),"Test 25 failed");
+
+assert(Number.isNaN(suit(52)),   "Test 26 failed");
+assert(Number.isNaN(suit(false)),"Test 27 failed");
+assert(Number.isNaN(suit(true)), "Test 28 failed");
+assert(Number.isNaN(suit(-1)),   "Test 29 failed");
+assert(Number.isNaN(suit(3.14)), "Test 30 failed");
+
+assert(Number.isNaN(cardID(0,1)),   "Test 31 failed");
+assert(Number.isNaN(cardID("1",1)), "Test 32 failed");
+assert(Number.isNaN(cardID(1,5)),   "Test 33 failed");
+assert(Number.isNaN(cardID(14,1)),  "Test 34 failed");
+assert(Number.isNaN(cardID(-1,-1)), "Test 35 failed");
+assert(Number.isNaN(cardID(0.5,1)), "Test 36 failed");
+assert(Number.isNaN(cardID(1,NaN)), "Test 37 failed");
+
+assert(Number.isNaN(color('apple')),"Test 41 failed");
+assert(Number.isNaN(color(true)),   "Test 42 failed");
+assert(Number.isNaN(name(false)),   "Test 43 failed");
+assert(Number.isNaN(name(-1)),      "Test 44 failed");
+assert(Number.isNaN(name(52)),      "Test 45 failed");
+assert(Number.isNaN(name(NaN)),     "Test 46 failed");
+
+
+assert(name(48)==='King of Hearts',  "Test 47 failed");
+assert(color(15)==='black',  "Test 48 failed");
+assert(rank(34)=== 9,  "Test 49 failed");
+
+assert(Number.isNaN(cardID(28,6)), "Test 50 failed");
+assert(Number.isNaN(suit("Diamonds")), "Test 51 failed");
+assert(Number.isNaN(rank("Jack")), "Test 52 failed");
