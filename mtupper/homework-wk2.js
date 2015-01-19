@@ -214,27 +214,26 @@ function andN(values) {
 // Work on answer here
 
 
-// A = 0,1,2,3
-// 2 = 4,5,6,7
-// 3 = 8,9,10,11
-
 // Problem 5a
 
 function rank(id) {
+    numCheck(id); // from 5b
     var r = Math.floor(id / 4) + 1;
     return r;
     console.log(r);
 }
 
 function suit(id) {
+    numCheck(id); // from 5b
     var s = (id % 4) + 1;
     return s;
     console.log(s);
 }
 
 function color(id) {
+    numCheck(id); // from 5b
     var c;
-    var x = (id % 4) + 1;
+    var x = suit(id);
     if (x === 1 || x === 2) {
         c = "red";
     }
@@ -246,6 +245,7 @@ function color(id) {
 }
 
 function name(id) {
+    numCheck(id); // from 5b
     var rankText;
     var suitText;
 
@@ -310,6 +310,27 @@ function name(id) {
 }
 
 function cardID(rank, suit) {
+    cardCheck(rank, suit); // from 5b
     var cid = (rank * 4) - (5 - suit);
     return cid;
+}
+
+// Problem 5b
+
+function numCheck(x) {
+    if (typeof x !== "number" || x > 51 || x < 0) {
+        x = "NaN";
+        return x;
+    }
+}
+
+function cardCheck(x, y) {
+    if (typeof x !== "number" || x > 13 || x < 1) {
+        x = "rank is NaN";
+        return x;
+    }
+    if (typeof y !== "number" || y > 4 || y < 1) {
+        y = "suit is NaN";
+        return y;
+    }
 }
