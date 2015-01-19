@@ -148,7 +148,47 @@ Suppose the '&' key on your keyboard is missing, and you want to be able to cont
 **a)**
 Write a function `and2(a,b)` which tries to simulate the && operator: it should always return the same result as `(a && b)` for any values of _a_ and _b_.  (For example, `and2((0>1),true)` should return _false_.)  But you can't use && itself within your function!
 
+Answer:
+(I couldn't figure out how to indent this properly.)
+
+```
+function and2(a,b) {
+	if (a || b) {
+		if (a) {
+			if (b) {
+				return true;
+			}
+			else {
+				return false;
+      		}
+     	}
+		else {
+			return false;
+			}	
+		}
+  	else return false;
+	}
+
+```
+
 **b)** Write another function `and3(a,b,c)` which tries to simulate a double-&& operator: it should always return the same result as `(a && b && c)` for any values of a,b,c.  (For example, `and3((1>0),(0>1),true)` should return _false_.)  As before, you're not allowed to use && itself. Remember that you can call functions from functions!
+
+Answer: 
+
+```
+function and3(a,b,c) {
+		if (and2(a, b) === false) {
+			return false;
+		}
+		else if (c) {
+			return true;
+		}
+      else {
+      	return false;
+      }
+	}
+
+```
 
 **c)**
 Now generalize your function to handle any number of values.  You will learn better ways eventually, but for now use an array to store all the values.
@@ -157,6 +197,30 @@ If the argument you provide when calling the function holds values [a,b,c...z], 
 `andN(26,[a,b,c...z])`, the function should return the same result as `(a && b && c && ... z)`.
 Make sure to handle two special cases: length 0 (then return _true_) and length 1 (then return that single value).
 Again, don't use &&.
+
+Answer:
+
+(I couldn't get length 0 to return true, it kept coming up as undefined.)
+
+```
+function andN(values) {
+	for (i = 0; i < values.length; i++) {
+		if (values.length === 0) {
+			return true;
+			}
+			else if (values.length === 1) {
+				return values[0];
+			}
+				else if (values[i] === false) {
+					return false;
+				}
+          else if (values[values.length -1 ] === true) {
+                  return true;}
+          }
+          
+}
+
+```
 
 **d)**
 You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances.  Explain why, and find an example which demonstrates failure.
