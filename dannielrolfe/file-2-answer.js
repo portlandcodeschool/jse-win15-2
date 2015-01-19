@@ -47,7 +47,7 @@
 //2a
 
 //This was the first equation I programmed 
-function round (i) {
+function round(i) {
 	if (i%1 <= .5) {
 		return Math.floor(i);
 	} else {
@@ -56,93 +56,83 @@ function round (i) {
 };
 
 //Second equation I programmed 
-function round (i) {
+function round(i) {
 	var i = Math.round(i);
 	return(i);
 };
 
 //Third equation I programmed
 
-function round (i) {
+function round(i) {
 	return Math.round(i);
 };
 
+//2b
+function test(x) {
+    var x = (x? false : true);
+    y = x; 
+    return y;
+};
 
+//2c
+for (var count = 15 - i; count < 15; count++) {
+    i = i-1
+    console.log(i+1);
+};
+
+//2d 
+
+var x;
+if (a) { if (b) { x = 0; } else { x = 1; }
+} else { if (b) { x = 1; } else { x = 2;} }
 
 //5
+//5
+    function rank(id) {
+        var result = Math.floor(id/4) + 1;
+        return result; 
 
-var suitsArray = [ //This array orders the suits: Hearts, Diamonds, Spades, Clubs
-    "Hearts",     //0 index
-    "Diamonds",   //1 index 
-    "Spades",     //2 index
-    "Clubs",      //3 index
-];
-    
-var rankArray = [
-    "Ace",    //0 index
-    "Two",    //1 index
-    "Three",  //2 index
-    "Four",   //3 index
-    "Five",   //4 index
-    "Six",    //5 index
-    "Seven",  //6 index
-    "Eight",  //7 index
-    "Nine",   //8 index
-    "Ten",    //9 index
-    "Jack",   //10 index
-    "Queen",  //11 index
-    "King"    //12 index      
-];
-
-//5a
-
-function rank(id) { //This function returns the rank Ace to King
-    rankNumber = rankArray[id]; 
-    return rankNumber;
-};
-
-//5b
-
-function suit(id) { //This function returns the suite
-    suitReturn = suitsArray[id];
-    return suitReturn;
-};
-
-//5c -------- HELP
-function color(id) {
-    if (suitsArray[id] === 0 || 2  ) { //This if statement checks if id is equal to less than 1
-        console.log(suitsArray[id]);
-        colorValue = "Red"
-        
-    } else if (suitsArray[id] === 1 || 2 ) { //This if statement checks if id is equal to less than 3
-        colorValue = "Black";
-        
-    } else {
-        colorValue = "Does not exist"; //This statements checks if id is greater than 3
-    }
-    
-    return colorValue;
-}; 
+    }; //This ends function rank
     
     
-//5e
-function name(id, id) {
-    suitReturn = suitsArray[id];
-    rankNumber = rankArray[id];
-    return rankNumber + " of " + suitReturn;  
-};
+    
+    function suit(id) {
+        var result = (id%4) + 1;
+        return result;
+    }; //This ends function suit
+    
 
+    var suitNames = [ //This array orders the suits: Hearts, Diamonds, Spades, Clubs
+        undefined,    //0 Index This is padding the array (moves all the arrays down one). This index is 0
+        "Hearts",     //1 index
+        "Diamonds",   //2 index 
+        "Spades",     //3 index
+        "Clubs"      //4 index
+    ];
 
-//5f
+    var rankNames = [
+        undefined,//0 Index This is padding the array (moves all the arrays down one. This index is 0
+        "Ace",    //1 index
+        "Two",    //2 index
+        "Three",  //3 index
+        "Four",   //4 index
+        "Five",   //5 index
+        "Six",    //6 index
+        "Seven",  //7 index
+        "Eight",  //8 index
+        "Nine",   //9 index
+        "Ten",    //10 index
+        "Jack",   //11 index
+        "Queen",  //12 index
+        "King"    //13 index      
+    ];
+    
+    function name(id) {
+        var rankName = rankNames[rank(id)],
+            suitName = suitNames[suit(id)],
+            fullName = rankName + " of " + suitName;
 
-function cardID(rank,suit) {
-    suitReturn = suitsArray[suit];
-    rankNumber = rankArray[rank];
-    return rankNumber + " of " + suitReturn;
-};
+        return fullName;
 
-
-
-
-
+    };//This ends function name    
 
