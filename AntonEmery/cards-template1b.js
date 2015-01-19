@@ -30,7 +30,7 @@ function suit(id) { // --> 1..4
 function cardID(cardRank, cardSuit) {     //0...51   
 	if(cardRank < 1 || typeof(cardRank) == 'string' ||  cardRank > 13 || cardRank % 1 !== 0 ) {
 		return NaN; 
-	} if (cardSuit > 4 || cardSuit % 1 !== 0 || cardSuit == NaN) {	
+	} if (cardSuit > 4 || cardSuit % 1 !== 0) {	
 		return NaN;
 	} else {         
 	var cardNumber = (4 * (cardRank - 1)) + (cardSuit - 1); //4 is number of columns
@@ -39,20 +39,27 @@ function cardID(cardRank, cardSuit) {     //0...51
 }
 
 function color(cardID) {   // red or black
-	var cardColor = suit(cardID);
-	if (cardColor >= 0 && cardColor <= 1) {
-		cardColor = 'red';
-	} else if (cardColor >= 2 && cardColor <= 3) {
-		cardColor = 'black';
-	}
-	return cardColor;
+	if (typeof(cardID) == 'string' || cardID == true) {
+		return NaN;
+	} else {
+		var cardColor = suit(cardID);
+		if (cardColor >= 0 && cardColor <= 1) {
+			cardColor = 'red';
+		} else if (cardColor >= 2 && cardColor <= 3) {
+			cardColor = 'black';
+		}
+	}	return cardColor;
 }
 
 function name(id) {
-	var cardName = rank(id);
-	var cSuit = suit(id);
-	var fullName = (cardRank[cardName - 1] + ' of ' + cardSuit[cSuit - 1]);
-	return fullName;
+	if (id == false || id < 0 || id > 51 || id%1 !== 0) {  // id == NaN does not work because NaN cannot equal NaN
+		return NaN;
+	} else {
+		var cardName = rank(id);
+		var cSuit = suit(id);
+		var fullName = (cardRank[cardName - 1] + ' of ' + cardSuit[cSuit - 1]);
+		return fullName;
+	}
 }
 
 
