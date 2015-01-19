@@ -6,41 +6,33 @@
 
 // var width = 4; use variable for varying size grid
 
-var width = 4;
-
-function rank(card) { // --> 1..13
-  var width = 4;
-  return Math.floor(card/width) + 1;
+function rank(card) {
+  return Math.floor(card/4) + 1;
 }
 
-function suit(card) { // --> 1..4
+function suit(card) {
   return (card%4) + 1;
 }
 
-// adjustment for nonsquare grid, where maximum c !== maximum r
-// var unequalGrid = Math.ceil((r - w)/2); -- in this case: 5
-
-function cardID(rank,suit) { // --> 0..51
-  return (4 * rank) + (suit - 5);
+function cardID(rank,suit) {
+  return 4 * (rank - 1) + (suit - 1);
 }
 
-function color(card) { // -->"red","black"
+function color(card) {
   if (suit(card) <= 2) {
     return "red";
-  } else if (suit(card) >= 3) {
+  } else {
     return "black";
   };
 }
 
-// how to get the index value into the function? Fails test #12 & 13.
-
-function name(card) { // --> string
-  var rankString = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
-  var suitString = ["Hearts", "Diamonds", "Spades", "Clubs"];
-  var rank = Math.floor(card/width);
-  var suit = (card%4);
-  var result = rankString[rank] + " of " + suitString[suit];
-  return result;
+function name(card) {
+  var rankString = ["", "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+  var suitString = ["", "Hearts", "Diamonds", "Spades", "Clubs"];
+  r = rank(card);
+  s = suit(card);
+  var cardName = rankString[r] + " of " + suitString[s];
+  return cardName;
 }
 
 // TESTING:
