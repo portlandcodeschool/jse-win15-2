@@ -272,126 +272,17 @@ Imagine that a deck of playing cards is sorted by rank and suit: first all the A
 
 * `rank(id)` returns 1-13, representing the card's rank (for an _id_ between 0-51).
 
-```javascript
-  function rank(id) {
-    var cardRank = Math.ceil(id/4);
-    if ((id % 4) == 0) {
-      cardRank++;
-    }
-    return cardRank;
-  }
-```
 
 * `suit(id)` returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
 
 
-```javascript
-  function suit(id) {
-    switch (id % 4) {
-      case 0:
-        return "Hearts";
-      case 1:
-        return "Diamonds";
-      case 2:
-        return "Spades";
-      case 3:
-        return "Clubs";
-    }
-  }
-```
-
 * `color(id)` returns "red" or "black".
-
-
-```javascript
-  function color(id) {
-    switch (suit(id)) {
-      case "Hearts":
-      case "Diamonds":
-        return "Red";
-      case "Spades":
-      case "Clubs":
-        return "Black";
-    }
-  }
-```
 
 
 * `name(id)` returns the full name of the card (e.g. "Four of Diamonds").
 
-```javascript
-    function name(id) {
-      var cardRank, cardName;
-
-      switch (rank(id)) {
-        case 1:
-          cardRank = "Ace";
-          break;
-        case 2:
-          cardRank = "Two";
-          break;
-        case 3:
-          cardRank = "Three";
-          break;
-        case 4:
-          cardRank = "Four";
-          break;
-        case 5:
-          cardRank = "Five";
-          break;
-        case 6:
-          cardRank = "Six";
-          break;
-        case 7:
-          cardRank = "Seven";
-          break;
-        case 8:
-          cardRank = "Eight";
-          break;
-        case 9:
-          cardRank = "Nine";
-          break;
-        case 10:
-          cardRank = "Ten";
-          break;
-        case 11:
-          cardRank = "Jack";
-          break;
-        case 12:
-          cardRank = "Queen";
-          break;
-        case 13:
-          cardRank= "King";
-          break;
-      }
-
-      return cardName = cardRank + ' of ' + suit(id);
-    }
-```
 
 * `cardID(rank,suit)` returns 0-51, identifying the card id of a given rank and suit.
-
-
-```javascript
-  function cardID(rank,suit) {
-    var id = (rank * 4) - 4;
-
-    if (suit === "Hearts"){
-      return id;
-    } else if (suit === "Diamonds") {
-      id += 1;
-      return id;
-    } else if (suit === "Spades") {
-      id += 2;
-      return id;
-    } else if (suit === "Clubs") {
-      id += 3;
-      return id;
-    }
-  }
-
-  console.log(cardID(6,'Spades'));
-```
 
 
 Assume each function is given valid arguments (i.e. the args are integers in the appropriate range).

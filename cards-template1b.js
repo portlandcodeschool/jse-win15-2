@@ -25,8 +25,7 @@ function suit(card) {
 		return NaN;
 	}
 
-	cardSuit = (card % 4) + 1;
-	return cardSuit;
+	return (card % 4) + 1;
 }
 
 function cardID(rank,suit) {
@@ -37,8 +36,8 @@ function cardID(rank,suit) {
 	if (!isValid(suit, 1, 4)){
 		return NaN;
 	}
-    var id = ((rank * 4) - 5) + suit;
-    return	id;
+    
+    return ((rank * 4) - 5) + suit;
 }
 
 function color(card) {
@@ -61,8 +60,7 @@ function name(card) {
 		return NaN;
 	}
 
-	var whatCard;
-	return whatCard = cardName[(rank(card) - 1)] + ' of ' + suitName[(suit(card) - 1)];
+	return cardName[(rank(card) - 1)] + ' of ' + suitName[(suit(card) - 1)];
 }
 
 function isValid(n, min, max){
@@ -122,4 +120,18 @@ assert(Number.isNaN(name(false)),   "Test 43 failed");
 assert(Number.isNaN(name(-1)),      "Test 44 failed");
 assert(Number.isNaN(name(52)),      "Test 45 failed");
 assert(Number.isNaN(name(NaN)),     "Test 46 failed");
+
+
+// These are my assertions for problem 5c
+//Successful assertions
+assert(suit(28) === 1,	"Test 47 failed");
+assert(cardID(3,1) === 8, "Test 48 failed");
+assert(name(49) === 'King of Diamonds', "Test 49 failed");
+
+//Failing assertions
+assert(Number.isNaN(rank(55)), "Test 50 failed");
+assert(Number.isNaN(suit(-55)), "Test 51 failed");
+assert(Number.isNaN(name("charles")), "Test 52 failed");
+
+
 

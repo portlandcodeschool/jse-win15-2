@@ -18,13 +18,11 @@ function rank(card) { // --> 1..13
 }
 
 function suit(card) { // --> 1..4
-	cardSuit = (card % 4) + 1;
-	return cardSuit;
+	return (card % 4) + 1;
 }
 
 function cardID(rank,suit) { // --> 0..51
-    var id = ((rank * 4) - 5) + suit;
-    return	id;
+    return ((rank * 4) - 5) + suit;
 }
 
 function color(card) { // -->"red","black"
@@ -39,8 +37,7 @@ function color(card) { // -->"red","black"
 }
 
 function name(card) { // --> string
-	var whatCard;
-	return whatCard = cardName[(rank(card) - 1)] + ' of ' + suitName[(suit(card) - 1)];
+	return cardName[(rank(card) - 1)] + ' of ' + suitName[(suit(card) - 1)];
 }
 
 
