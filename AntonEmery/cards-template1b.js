@@ -1,18 +1,52 @@
-// Error-detecting version
+// Simple version (no error-detection)
 
-function rank(card) {
+// function()--> possible return values
+
+var cardRank = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 
+			  'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
+
+var cardSuit = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
+
+
+function rank(id) {  //return 1-13
+	if (id > 51 || typeof(id) == 'string' || id < 0 || id%1 !== 0 || id == undefined) {
+		return NaN;
+	} else {
+	var rankNumber = Math.ceil((id + 1) / 4); //rank number is one more than array index since arrays start at 0 but ranks starts at 1
+	return rankNumber;
+		}
+	}
+
+function suit(id) { // --> 1..4
+	if (id > 51 || typeof(id) == 'boolean' || id < 0 || id%1 !== 0) {
+		return NaN;
+	} else {
+	var suitNumber = (id % 4) + 1; //suit number is one more than array index
+	return suitNumber; 
+	}
 }
 
-function suit(card) {
+
+function cardID(cardRank, cardSuit) {     //0...51             
+	var cardNumber = (4 * (cardRank - 1)) + (cardSuit - 1); //4 is number of columns
+	return cardNumber;
+	}
+
+function color(cardID) {   // red or black
+	var cardColor = suit(cardID);
+	if (cardColor >= 0 && cardColor <= 1) {
+		cardColor = 'red';
+	} else if (cardColor >= 2 && cardColor <= 3) {
+		cardColor = 'black';
+	}
+	return cardColor;
 }
 
-function cardID(rank,suit) {
-}
-
-function color(card) {
-}
-
-function name(card) {
+function name(id) {
+	var cardName = rank(id);
+	var cSuit = suit(id);
+	var fullName = (cardRank[cardName - 1] + ' of ' + cardSuit[cSuit - 1]);
+	return fullName;
 }
 
 
