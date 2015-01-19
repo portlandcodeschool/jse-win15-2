@@ -120,5 +120,7 @@ assert(cardRank[0] !== 'Ace', 'Test 48 passed!');
 assert(cardSuit.indexOf('Spades') !== 2, 'Test 49 passed!');
 
 //Testing for Failure
-
+assert(typeof(name(13)) == 'string', 'Test 50 failed!'); 
+assert(color(34) !== 'red' || card(34) !== 'black', 'Card colors not right');
+assert(cardRank.length !== 13, 'Rank array not right length');
 
