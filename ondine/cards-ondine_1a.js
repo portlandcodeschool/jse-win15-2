@@ -1,7 +1,5 @@
 // Simple version (no error-detection)
 
-// function()--> possible return values
-
 // var size = 13;
 
 // var width = 4; use variable for varying size grid
@@ -18,12 +16,21 @@ function cardID(rank,suit) {
   return 4 * (rank - 1) + (suit - 1);
 }
 
+// version one using statement:
+
 function color(card) {
   if (suit(card) <= 2) {
     return "red";
   } else {
     return "black";
   };
+}
+
+// version two using ternary operator:
+
+function color(card) {
+  suitColor = suit(card) <= 2 ? "red": "black";
+  return suitColor;
 }
 
 function name(card) {
