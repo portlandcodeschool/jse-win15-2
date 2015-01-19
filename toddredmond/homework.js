@@ -1,4 +1,4 @@
-/*//1a
+//1a
 function fractionString (n,d) {
 var remainder = n % d;
 var wholeNum = (n - remainder) / d;
@@ -55,37 +55,38 @@ if (a && b) {
 }
 
 //3
-	var day = ['First', 'Second', 'third', 'fourth', 'fifth', 'sixth', 
-                 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth'];
-             
-	var gifts = ['A Partridge in a Pear Tree', 'Two Turtle Doves', 'Three French Hens', 
-             'Four Calling Birds', 'Five Golden Rings', 'Six Geese a Laying', 'Seven Swans a Swimming', 
-             'Eight Maids a Milking', 'Nine Ladies Dancing', 'Ten Lords a Leaping','Eleven Pipers Piping', 
-             'Twelve Drummers Drumming'];
+//array declaration and assignments
+var day = ['First', 'Second', 'third', 'fourth', 'fifth', 'sixth', 
+             'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth'];
+         
+var gifts = ['A Partridge in a Pear Tree', 'Two Turtle Doves', 'Three French Hens', 
+         'Four Calling Birds', 'Five Golden Rings', 'Six Geese a Laying', 'Seven Swans a Swimming', 
+         'Eight Maids a Milking', 'Nine Ladies Dancing', 'Ten Lords a Leaping','Eleven Pipers Piping', 
+         'Twelve Drummers Drumming'];
 
 function gave() {
+	//loops through days in order
 	for (iterator = 0; iterator < day.length; iterator++) {
 	  console.log('On the ' + day[iterator] + " day of Christmas, my true love sent to me: " + gifts[iterator]);
-    
+    //loops through reverse order to add days that have already passed.
        for (iterator1 = iterator - 1; iterator1 > 0; iterator1--) {
 	       console.log(gifts[iterator1]);
        } // end bracket for 2nd for loop
        
-    if (day[iterator] == 'First') {
-      //console.log('work');
-      //return; 
+    if (day[iterator] == 'First') { // used to not add first day after the first day.
+
     } else {
-    console.log('and ' + gifts[0]);
-    console.log()
+    console.log('and ' + gifts[0]); // adds "and" before the first day when going in reverse order.
+    console.log() // needed to create extra line for better user experience.
     } //conditional
 	} // end bracket for 1st for loop
 } // end bracket for gave function
 
-gave();
+gave(); // function call
 
 //4a
 function and2(a,b){
-          if (a == false || b == false) {
+          if (a == false || b == false) { 
           return false;
           }
           else {
@@ -140,19 +141,21 @@ for the values passed. For instance (0 == '0' would pass the test but this is no
 could prevent this from occurring and pass back an error message to the user. I will say that the first function is a cumbersome
 way to handle avoiding an && statement.)
 */    
-//5a
+//5a,b,c
+//Sorry, I combined all sections into one solution. 
 
 
 // Simple version (no error-detection)
 // function()--> possible return values
 
-
+// array & variable assignments and declarations
 var cRank = ['Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Jack','Queen','King'];
 var cSuit = ['Hearts','Diamonds','Spades','Clubs'];
 var id;
 var rankloc;
 var suitloc;
 
+//CardID which takes two values and returns one.
 function cardID(rankloc, suitloc) {
   
   if (rankloc === false || rankloc === true || typeof rankloc !='number' 
@@ -183,18 +186,14 @@ function suit(id) {
 }
 
 function rank(id) {
-  //console.log(id);
   
   if (id === false || id === true || typeof id != 'number') { 
-   // return rankid;
+
     return NaN;
   }
   else if (id >= 0 && id <= 51 && id % 1 === 0) {
     
     rankid = Math.floor((id/4)+1);
-    //var rankname = cRank[rankid];
-  //if (rankid%1 !=0 || rankid < 1 || rankid > 13) {
-  //if (rankid%1===0 && rankid > 0 && rankid < 13) {
     return rankid;
   
   } else {
@@ -204,15 +203,6 @@ function rank(id) {
 	
 }
 
-/*function color(id) {
-	if (suit(id) == 'Hearts' || 'Diamonds') {
-		colorname = "red";
-		return colorname;
-	} else {
-		colorname = 'Black';
-		return colorname;
-	}
-} */
 
 function color(id) {
   if (id === false || id === true || typeof id != 'number') {
@@ -293,11 +283,12 @@ assert(Number.isNaN(name(-1)),      "Test 44 failed");
 assert(Number.isNaN(name(52)),      "Test 45 failed");
 assert(Number.isNaN(name(NaN)),     "Test 46 failed");
 
-
+//First three new tests
 assert(name(48)==='King of Hearts',  "Test 47 failed");
 assert(color(15)==='black',  "Test 48 failed");
 assert(rank(34)=== 9,  "Test 49 failed");
 
+//last three for defensive testing
 assert(Number.isNaN(cardID(28,6)), "Test 50 failed");
 assert(Number.isNaN(suit("Diamonds")), "Test 51 failed");
 assert(Number.isNaN(rank("Jack")), "Test 52 failed");
