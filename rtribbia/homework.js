@@ -89,7 +89,9 @@
 			return same;
 		}
 
-	4D. _____________________________________
+	
+	4D. false && lksksdjf  will return false- the first false prevents anything afterwards from being evaluated. and2(false, lksksdjf); will error out, stopping the program with: "lksksdjf is not defined"
+
 
 5.A. See card-template1a.js
 5.B. See card-template1b.js
