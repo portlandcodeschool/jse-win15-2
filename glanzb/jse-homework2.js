@@ -78,7 +78,7 @@ if (xIsFalse)
 else
    y = x;
 ->
-  var y = x ? true : false)
+  var y = (x ? x : false)
 
 
 c)
@@ -91,13 +91,32 @@ for (var count = 15 - i ; count < 15 ; count=count+1) {
 
 ->
 
-for (count = i; i < 15; i++) {
-    i = i-1;
-    console.log(i+1)
+while (i>0) {
+      console.log(i--);
 }
 
 
-d) ???
+//Dan's solutions: ??
+
+for ( ; i>0; i--) {
+    console.log(i);
+}
+OR
+
+while (i>0) {
+      console.log(i);
+      i--;
+}
+OR
+
+while (i>0) {
+      console.log(i--);
+}
+
+
+
+
+d) 
 
 var x;
 if (a) {
@@ -113,32 +132,55 @@ if (a) {
     x = 2;
   }
 }
+
+->
+var x;
+if (a && b) {
+  x=0;
+} else if (a || b) {
+  x=1;
+} else {
+  x=2;
+}
+
+
 3) (Moderate, 20%)
 
 Write a function which returns a string containing the entire lyrics for the song "The Twelve Days of Christmas". Make sure that your result is grammatically and typographically correct (include line breaks, commas, etc. where needed), but keep redundancy within your program to a minimum. Don't just console.log() each line; return them together as a single string which includes a '\n' at each line break. You may want to use helper functions, loops, and/or arrays to store repeated elements.
 
 If you prefer a non-Christmas option, you may choose a different song with similarly repeating structure, such as "There was an Old Woman Who Swallowed a Fly". If you prefer a vegan option, you may write your own cruelty-free song.
 
+/* help needed on hw session */
+
 Subsequent verses follow the same pattern, each adding one new gift and repeating all the earlier gifts, so that each verse is one line longer than its predecessor:
 
 
 var days = ["First ", "Second ", "Third ", "Fourth ", "fifth ", "sixth ",
    "seventh ", "eighth ", "ninth ", "tenth ", "eleventh ", "twelfth "];
-var firstLine = ""
- 
+var lines = "" 
+
 var presents = ["a Partridge in a Pear Tree.", "Two Turtle Doves", "Three French Hens", "Four Calling Birds", "Five Gold Rings", "Six Geese a-Laying", "Seven Swans a-Swimming", "Eight Maids a-Milking", "Nine Ladies Dancing", "Ten Lords a-Leaping", "Eleven Pipers Piping", "Twelve Drummers Drumming"];
 
- for (i=0; i<days.length; i++){
-     firstLine += "On the " + days[i] + "day of Christmas my true love sent to me" + '\n' + presents[i] + '\n' + and;
-  };
-};
 
-
-if (i=0){
-  var and = ""
-  } else {
-    and = "and"
+  
+function makeLines(){
+ for (var i=0; i<days.length; i++){
+     var lines += "On the " + days[i] + "day of Christmas my true love sent to me" + '\n' + presents[i] + '\n';
   }
+  return lines;
+}
+
+
+function makeSong(){
+  var song = ""
+  for (n+0; n<12; n++){
+    var song = makeLines(n);
+  }
+  return song
+}
+
+
+console.log (makeSong());
 
 
 
