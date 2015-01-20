@@ -15,6 +15,17 @@ Revisit your solution to homework #1, problem 5, which expresses an improper fra
 **a)** Write a function `fractionString(n,d)` which takes 2 parameters (n,d) and returns a string.  For example, 
 `fractionString(7,4)` should return "1 3/4", and `fractionString(3,3)` should (for now) return "1 0/3".  As before, assume that _n_ and _d_ are both positive integers.
 
+```
+function fractionString(n,d) {
+var integer = (Math.floor(n/d)).toString(),
+    numerator = (n % d).toString(),
+    denominator = d.toString(),
+    finalValue = integer + " " + numerator + "/" + denominator;
+	return finalValue;
+}
+
+```
+
 Note that _returning_ a string is not the same as _printing_ a string.  You may use `console.log()` for debugging, but your function should have the correct string as its return value.
 You can also print your return value with an expression like `console.log(fractionString(7,4))`.
 
@@ -22,6 +33,25 @@ You can also print your return value with an expression like `console.log(fracti
 
 - A output string like "0 1/2" should be simplified to just "1/2";
 - A output string like "1 0/3" should be simplified to just "1".
+
+```
+function fractionString(n,d) {
+	var integer = (Math.floor(n/d)).toString(),
+    numerator = (n % d).toString(),
+    denominator = d.toString();
+    if (integer == 0) {
+    	finalValue = numerator + "/" + denominator;
+	}
+	else if (numerator == 0) {
+		finalValue = integer;
+	}
+	else {
+		finalValue = integer + " " + numerator + "/" + denominator;
+	}
+	return finalValue;
+}
+
+```
 
 ---
 
