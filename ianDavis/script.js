@@ -56,20 +56,18 @@ y = (typeof x == "string") || false;
 
 if (typeof x == "string")
 
-function qTwo(){
-	var testCases = ["string", "1", true, false, Infinity, 20, undefined, NaN];
-	for (var x = 0, length = testCases.length; x < length; x++) {
-				var y, xIsFalse = (x ? false : true)
-		if (xIsFalse){
-					y = false;
-				}else{
-							y = x;}
-		console.log("When x is " + testCases[x] + ", y" + " is " + y);
-	};
-}
-qTwo();
-
-
+// // test
+// function qTwo(){
+// 	var testCases = ["string", "1", true, false, Infinity, 20, undefined, NaN];
+// 	for (var x = 0, length = testCases.length; x < length; x++) {
+// 				var y, xIsFalse = (x ? false : true)
+// 		if (xIsFalse){
+// 					y = false;
+// 				}else{
+// 							y = x;}
+// 		console.log("When x is " + testCases[x] + ", y" + " is " + y);
+// 	};
+// }
 
 
 //c
@@ -126,32 +124,29 @@ function numberSuffix(number){
 }
 
 function getAllPrevious(current, myArr) {
-    //var currentIndex = myArr.indexOf(current);
-    //return i > -1 ? myArr.slice(0, i) : [];
     if (current < myArr.length +1 ){
-    	
     	return myArr.slice(0, current).reverse();
     }
 }
-
 
 
 function twelveDays(){
 	var daysOfXmas = ["a partridge in a pear tree", "two turtle doves", "three French hens", " four calling birds", "five golden rings", "six geese a-laying", "seven swans a-swimming", "eight maids a-milking", "nine ladies dancing", "ten lords a-leaping", "eleven drummers drumming", "twelve pipers piping"];
 
 	for (var i = 1, length = daysOfXmas.length; i <= length; i++){
-        		var currentVerse = getAllPrevious(i, daysOfXmas);
-				var refrain = "On the " + numberSuffix(i) + " day of Christmas,\n my true love sent to me\n" + 
-				" " + currentVerse.join(", \n");
-						
+		if (i === 2){
+			daysOfXmas[0] = "and " + daysOfXmas[0];
+		}
+    		var currentVerse = getAllPrevious(i, daysOfXmas);
+    		
+			var refrain = "On the " + numberSuffix(i) + " day of Christmas,\n my true love sent to me\n" + 
+			" " + currentVerse.join(", \n");
+					
 		console.log(refrain);
 		
 	}
 
 }
-
-
-getAllPrevious(12, daysOfXmas).join(", \n");// correct input for 12th day
 
 
 //4
@@ -183,11 +178,10 @@ function and3(a,b,c){
 		return true;
 	}
 }
+if (a)
+	if (b)
 
-// function isFalse(element, index, array){
-// 	// use Array.prototype.some method to test whether any elements in array are false -- return false if
-// 	return element == false;
-// }
+
 //c
 function andN(values){
 	//var arrayOfValues == [values];
