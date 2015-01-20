@@ -33,11 +33,12 @@ function color(card) {
   return suitColor;
 }
 
+var rankString = ["", "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+var suitString = ["", "Hearts", "Diamonds", "Spades", "Clubs"];
+  
 function name(card) {
-  var rankString = ["", "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
-  var suitString = ["", "Hearts", "Diamonds", "Spades", "Clubs"];
-  r = rank(card);
-  s = suit(card);
+  var r = rank(card);
+  var s = suit(card);
   var cardName = rankString[r] + " of " + suitString[s];
   return cardName;
 }
