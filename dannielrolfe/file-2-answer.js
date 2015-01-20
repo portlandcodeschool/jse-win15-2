@@ -81,10 +81,64 @@ for (var count = 15 - i; count < 15; count++) {
 };
 
 //2d 
+if (a) { 
+    x = 0 
+} else {
+    x = 1; 
+};
 
-var x;
-if (a) { if (b) { x = 0; } else { x = 1; }
-} else { if (b) { x = 1; } else { x = 2;} }
+//3
+
+//Still working on this problem 
+
+    var days = ['On the first', 
+                'On the second', 
+                'On the third', 
+                'On the fourth', 
+                'On the fifth', 
+                'On the sixth', 
+                'On the seventh', 
+                'On the eighth', 
+                'On the ninth', 
+                'On the tength', 
+                'On the eleventh', 
+                'On the twelfth'
+               ];
+    
+    
+    
+    
+    var loveSent = ['A Partridge in a Pear Tree',   //1 Index
+                    'Two Turtle Doves',             //2 Index
+                    'Three French Hens',            //3 Index
+                    'Four Calling Birds',           //4 Index
+                    'Five Golden Rings',            //5 Index
+                    'Six Geese a Laying',           //6 Index
+                    'Seven Swans a Swimming',       //7 Index
+                    'Eight Maids a Milking',        //8 Index
+                    'Nine Ladies Dancing',          //9 Index
+                    'Ten Lords a Leaping',          //10 Index
+                    'Eleven Pipers Piping',         //11 Index
+                    '12 Drummers Drumming'          //12 Index
+                   ];
+    
+    
+	for(var frase = 0; frase <= 11; frase++) {
+		for(var love = 0; love <= 11; ++love ){	
+			
+		};	
+		
+		console.log(days[frase] + " day of Christmas my true love sent to me: " + loveSent[love])
+	};
+
+	
+ 
+//4 Still working on this problem 
+
+	
+	
+
+
 
 //5
 //5

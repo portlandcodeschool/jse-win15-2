@@ -115,6 +115,7 @@ if (xIsFalse)
    y = false;
 else
    y = x;
+console.log(x);
 ```
 
 
