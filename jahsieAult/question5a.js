@@ -48,12 +48,6 @@ return id;
 }
 
 
-/************  ANSWERS TO QUESTION 5 B ************/
-
-
-/************  ANSWERS TO QUESTION 5 C ************/
-
-
 
 
 // TESTING:
