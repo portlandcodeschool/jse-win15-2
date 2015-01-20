@@ -9,19 +9,19 @@ var gifts = ['Partridge in a Pear Tree', 'Two Turtle Doves', 'Three French Hens'
 
 
 //initial loop that prints out 'On the X day of Christmas'
-
+var output = '';
 for(var day = 0; day < 12; day++) {
-	console.log('On the ' + days[day] + ' day of Christmas my true love gave to me');
+	output += ('On the ' + days[day] + ' day of Christmas my true love gave to me\n');
 	for(counter = day; counter >= 0; counter--) {
 			if(day == 0){
-			console.log('A ' + gifts[counter]);	
+			output += ('A ' + gifts[counter] + '\n');	
 			} else if (counter == 0) {
-			console.log('And a ' + gifts[counter]);	
+			output += ('And a ' + gifts[counter] + '\n');	
 			} else {
-			console.log(gifts[counter]);
+			output += (gifts[counter] + '\n');
 			}
 		}
-};
+	};
+	console.log(output);
 
-//I know this is not exactly the format you want. as far as i could get right now
 
