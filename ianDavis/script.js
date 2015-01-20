@@ -129,7 +129,7 @@ function getAllPrevious(current, myArr) {
     //var currentIndex = myArr.indexOf(current);
     //return i > -1 ? myArr.slice(0, i) : [];
     if (current < myArr.length +1 ){
-    	myArr[0] = "and " + myArr[0];
+    	
     	return myArr.slice(0, current).reverse();
     }
 }
@@ -157,22 +157,61 @@ getAllPrevious(12, daysOfXmas).join(", \n");// correct input for 12th day
 //4
 //a
 function and2(a,b){
-	return a && b;
+	if (a == false){
+		return false;
+	}
+	if (b == false){
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
-function q4a(){
-	var testCasesA = ["string", "1", true, false, Infinity, 20, undefined, NaN];
-	var testCasesB = ["string", "1", true, false, Infinity, 20, undefined, NaN];
-	for (var x = 0, lengthA = testCasesA.length; x < lengthA; x++) {
-		for (var y = 0, lengthB = testCasesB; y < lengthB; y++){
-			var result = and2(x,y);
+//b
+function and3(a,b,c){
+	if (a == false){
+		return false;
+	}
+	if (b == false){
+		return false;
+	}
+	if ( c == false){
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+// function isFalse(element, index, array){
+// 	// use Array.prototype.some method to test whether any elements in array are false -- return false if
+// 	return element == false;
+// }
+//c
+function andN(values){
+	//var arrayOfValues == [values];
+	for (var i = 0, length = values.length; i < length; i++){
+		if (values[i] == false) {
+			return false;
 		}
 	}
-		console.log("When a is " + testCasesA[x] + ", a" + " is " + testCasesB[y])+ "the result is " + result;
-	};
 }
 
+andN.([0 < 3, 3 < 7, 5 > 6, poop])
+
+0 < 3 && 3 < 7 && 5 < 6]
+
+0 < 3 && 3 < 7 && 5 > 6 && poop
+
+//d 
+//the function evaluates every element in the array parameter,  while the && operator short-circuits -- doesn't evaluate anything after an element is evaluated false
+
+
 //5
+
+false && true 
+true || false 
 
 
 var RANKS = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
