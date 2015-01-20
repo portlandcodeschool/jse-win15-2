@@ -1,20 +1,72 @@
 // Error-detecting version
 
-function rank(card) {
+var suit;
+var rank;
+var id;
+
+var suitName = ["Hearts", "Diamonds", "Spades", "Clubs"];
+var rankName = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+
+//////////  5.1 ////////////////
+
+function findRank(id) {
+	if (!(Number.isInteger(id)) || id > 51 || id < 0 {
+		return NaN;
+	}
+	rank = Math.floor(id/4) + 1;
+	return rank;
 }
 
-function suit(card) {
+//////////  5.2////////////////
+
+function findSuit(id) { // --> 1..4
+	if (!(Number.isInteger(id)) || id > 51 || id < 0 {
+	return NaN;
+	}
+	findID(suit, rank);
+	suitLabel = suitName[id%4];
+	return suitLabel;
 }
 
-function cardID(rank,suit) {
+//////////  5.3 ////////////////
+
+function findColor(id) {
+	if (!(Number.isInteger(id)) || id > 51 || id < 0 {
+	return NaN;
+	}
+	else if (id%4 < 2) {
+		color = "Red";
+	} 
+	else {
+		color = "Black";
+	}
+	return color;
 }
 
-function color(card) {
+//////////  5.4 ////////////////
+
+function findName(id) { // -->"red","black"
+	if (!(Number.isInteger(id)) || id > 51 || id < 0 {
+	return NaN;
+	}
+	cardName = rankName[Math.floor(id/4)];
+	nameOfCard= (cardName + " of " + findSuit(id));
+	return nameOfCard;
 }
 
-function name(card) {
-}
+//////////  5.5 ////////////////
 
+function findID(suit, rank) {
+	/*Oops! Just realized there was a flaw in my original function. You can't enter a string of the suit name, just the suit array value. */
+	if (suit > 3 || suit < 0 || !(Number.isInteger(suit))))  /*(suit !(Hearts" || "Diamonds" || "Spades" || "Clubs""))*/ {
+		return NaN;
+	} else if (rank > 13 || rank < 0 || !(Number.isInteger(rank))) {
+		return NaN;
+	}
+	else { id= (4 * (rank-1)) + suit;
+	return id;
+	}
+}
 
 
 // TESTING:
