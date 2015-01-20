@@ -29,7 +29,7 @@ else
    y = x;
 
 /*answer*/
-if x equals false or zero or an empty string then y is false, else y = x
+if(x == false || x == 0 || x == '') ? y = false : y = x
 
 /*c*/  //i = 10
 for (var count = 15 - i ; count < 15 ; count=count+1) {
