@@ -13,7 +13,25 @@ Please also read the [learning objectives](objectives.md) for this week.
 Revisit your solution to homework #1, problem 5, which expresses an improper fraction as a proper one, and turn your solution into a function.
 
 **a)** Write a function `fractionString(n,d)` which takes 2 parameters (n,d) and returns a string.  For example, 
-`fractionString(7,4)` should return "1 3/4", and `fractionString(3,3)` should (for now) return "1 0/3".  As before, assume that _n_ and _d_ are both positive integers.
+`fractionString(7,4)` should return "1 3/4", and `fractionString(3,3)` should (for now) return "1 0/3".  As before, assume that _n_ and _d_ are both positive integers. 
+
+**Answer:**
+
+```
+var fractionString = function(n,d) {
+  
+  var remainder = n % d;
+  var wholes = Math.floor(n/d);
+  var result = wholes + ' ' + remainder + '/' + d;	
+  return result;
+};
+
+console.log(fractionString(7,4))
+
+You can call fractionString and add parameters for n and d for example:
+fractionString(17,5)
+
+```
 
 Note that _returning_ a string is not the same as _printing_ a string.  You may use `console.log()` for debugging, but your function should have the correct string as its return value.
 You can also print your return value with an expression like `console.log(fractionString(7,4))`.
@@ -23,6 +41,33 @@ You can also print your return value with an expression like `console.log(fracti
 - A output string like "0 1/2" should be simplified to just "1/2";
 - A output string like "1 0/3" should be simplified to just "1".
 
+**Answer:**
+
+```
+var fractionString = function(n,d) {
+  
+  var remainder = n % d;
+  var wholes = Math.floor(n/d);
+  
+  if( wholes === 0)	{
+  	var result = remainder + '/' + d;
+  }
+  
+  if( remainder === 0)	{
+  	var result = wholes;
+  }
+  
+  else	{
+  	var result = wholes + ' ' + remainder + '/' + d;
+  }
+  	
+  return result;
+};
+
+console.log(fractionString(8,4))
+
+
+```
 ---
 
 **2)** _(Moderate, 15%)_
@@ -41,14 +86,34 @@ if ((n - Math.floor(n)) >= .5) {
 }
 ```
 
+**Answer:**
+
+```
+((n - Math.floor(n)) >= .5)? (i = Math.ceil(n)):(i = Math.floor(n));
+```
 
 **b)**
 ```
-var y, xIsFalse = (x? false : true);
+var y, 
+xIsFalse = (x? false : true);
 if (xIsFalse)
    y = false;
 else
-   y = x;
+   y = x;   
+```
+
+**Answer:**
+
+```
+
+var y,
+var x = (true or false);
+
+xIsFalse = (x? false : true);
+y = (x? true : false);
+
+
+
 ```
 
 
@@ -58,6 +123,15 @@ for (var count = 15 - i ; count < 15 ; count=count+1) {
     i = i-1;
     console.log(i+1)
 }
+```
+
+**Answer:**
+
+```
+for (var count = 15 - i ; count < 15 ; count=count+1) {
+    console.log(i)
+}
+
 ```
 
 
@@ -79,6 +153,16 @@ if (a) {
 }
 ```
 
+**Answer:**
+
+```
+var x;
+(a?(b?x=0:x=1):(b?x=1:x=2))
+
+```
+
+
+
 
 ---
 
@@ -89,6 +173,29 @@ You may want to use helper functions, loops, and/or arrays to store repeated ele
 
 If you prefer a non-Christmas option, you may choose a different song with similarly repeating structure, such as "There was an Old Woman Who Swallowed a Fly".  If you prefer a vegan option, you may write your own cruelty-free song.
 
+**Answer:**
+
+```
+
+var days = ['', "first ", "second ", "third ", "fourth ", "fifth ", "sixth ", "seventh ", "eighth ", "ninth ", "tenth ", "eleventh ", "twelfth "]
+
+var gave = ['', "a Partridge in a Pear Tree.", "Two Turtle Doves and", "Three French Hens", "4 Calling Birds", "5 Gold Rings", "6 Geese a-Laying", "7 Swans a-Swimming", "8 Maids a-Milking", "9 Ladies Dancing", "10 Lords a-Leaping", "11 Pipers Piping", "12 Drummers Drumming" ]
+
+function song(){
+for (var day =1; day <= 12; day++)	{
+	var str = '';
+	for (var letter = day; letter > 0; letter--)	{
+		str = str + gave[letter] + '\n';
+	}
+  
+  console.log("On the " + days[day] + "day of Christmas" + '\n'
+              + "my true love gave to me " + str + '\n')
+}
+}
+song()
+
+```
+
 ---
 
 **4)** _(Difficult, 20%)_
@@ -98,7 +205,53 @@ Suppose the '&' key on your keyboard is missing, and you want to be able to cont
 **a)**
 Write a function `and2(a,b)` which tries to simulate the && operator: it should always return the same result as `(a && b)` for any values of _a_ and _b_.  (For example, `and2((0>1),true)` should return _false_.)  But you can't use && itself within your function!
 
+**Answer:*
+
+```
+
+var a;
+var b;
+
+function and2(a,b) {
+    if (a === true) { // first if
+      if (b === true){  //second if
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+
+
+```
+
 **b)** Write another function `and3(a,b,c)` which tries to simulate a double-&& operator: it should always return the same result as `(a && b && c)` for any values of a,b,c.  (For example, `and3((1>0),(0>1),true)` should return _false_.)  As before, you're not allowed to use && itself. Remember that you can call functions from functions!
+
+**Answer:**
+
+```
+var a;
+var b;
+
+function and3(a,b,c) {
+      if (a === true) { // first if
+      if (b === true){  // second if
+        if (c === true) { // third if
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+```
 
 **c)**
 Now generalize your function to handle any number of values.  You will learn better ways eventually, but for now use an array to store all the values.
@@ -108,10 +261,37 @@ If the argument you provide when calling the function holds values [a,b,c...z], 
 Make sure to handle two special cases: length 0 (then return _true_) and length 1 (then return that single value).
 Again, don't use &&.
 
+**Answer:**
+
+```
+
+UGH! I'm confused as to what is needed / how to do it. 
+
+values[]
+
+function andN(values)	{
+	for (var values; values>0; values++){
+
+	if	(values == true  )	{
+		return true
+	}
+	else	{
+		return false
+	}
+}
+}
+andN(3);
+
+```
+
 **d)**
 You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances.  Explain why, and find an example which demonstrates failure.
 
----
+**Answer:**
+
+```
+----
+```
 
 
 **5)** _(Moderate, 35%)_
@@ -122,13 +302,52 @@ Imagine that a deck of playing cards is sorted by rank and suit: first all the A
 
 * `rank(id)` returns 1-13, representing the card's rank (for an _id_ between 0-51).
 
+**Answer:**
+
+```
+See cards-template1a.js
+
+```
+
 * `suit(id)` returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
+
+**Answer:**
+
+```
+See cards-template1a.js
+
+```
+
 
 * `color(id)` returns "red" or "black".
 
+**Answer:**
+
+```
+See cards-template1a.js
+
+```
+
+
 * `name(id)` returns the full name of the card (e.g. "Four of Diamonds").
 
+**Answer:**
+
+```
+See cards-template1a.js
+
+```
+
+
 * `cardID(rank,suit)` returns 0-51, identifying the card id of a given rank and suit.
+
+**Answer:**
+
+```
+I need help figuring out why my function onky works up to 47.
+See cards-template1a.js
+```
+
 
 Assume each function is given valid arguments (i.e. the args are integers in the appropriate range).
 Your functions may call each other-- for example: _color_ could be derived from _suit_. Try to reuse functions to avoid duplicating code.
