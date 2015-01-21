@@ -15,6 +15,28 @@ Revisit your solution to homework #1, problem 5, which expresses an improper fra
 **a)** Write a function `fractionString(n,d)` which takes 2 parameters (n,d) and returns a string.  For example, 
 `fractionString(7,4)` should return "1 3/4", and `fractionString(3,3)` should (for now) return "1 0/3".  As before, assume that _n_ and _d_ are both positive integers.
 
+//Solution 1a
+
+function fractionString (n,d); {
+	var n = 7;
+    var d = 4;
+
+    var output = "";
+
+    var w = Math.floor(n/d);
+
+    if( w > 0) {
+        output += w + " ";
+    }
+
+    var nn = n % d;
+
+    if(nn > 0) {
+        output += nn + "/" + d;
+    }
+
+    console.log(output);
+
 Note that _returning_ a string is not the same as _printing_ a string.  You may use `console.log()` for debugging, but your function should have the correct string as its return value.
 You can also print your return value with an expression like `console.log(fractionString(7,4))`.
 
@@ -30,7 +52,7 @@ You can also print your return value with an expression like `console.log(fracti
 Rewrite each block below as the simplest equivalent you can discover.  Your equivalent should produce the same final conditions as the original code given the same initial conditions.
 In each case, if there is an undeclared variable, assume it has been declared earlier and set to an unknown value.
 
-**a)**
+**a)** - done
 
 ```
 var i;
@@ -40,28 +62,37 @@ if ((n - Math.floor(n)) >= .5) {
   i = Math.floor(n);
 }
 ```
+//my solution
 
+var i = Math.round(n)
 
-**b)**
+**b)** - not done
 ```
 var y, xIsFalse = (x? false : true);
 if (xIsFalse)
    y = false;
 else
    y = x;
+
 ```
+//2b Answer
 
 
-**c)**
+
+
+**c)** done
 ```
 for (var count = 15 - i ; count < 15 ; count=count+1) {
     i = i-1;
     console.log(i+1)
 }
 ```
+//my solution 2c:
+var i = 20
+for (i; i >0; --i){
+console.log (i)
 
-
-**d)**
+**d)** - done
 ```
 var x;
 if (a) {
@@ -78,17 +109,35 @@ if (a) {
   }
 }
 ```
+//my solution
 
+
+if (a==true)
+	return 0
+else
+	return 2;
 
 ---
 
-**3)** _(Moderate, 20%)_
+**3)** _(Moderate, 20%)_ not done
 
 Write a function which returns a string containing the entire lyrics for the song "The Twelve Days of Christmas".  Make sure that your result is grammatically and typographically correct (include line breaks, commas, etc. where needed), but keep redundancy within your program to a minimum.  Don't just `console.log()` each line; return them together as a single string which includes a '\n' at each line break.
 You may want to use helper functions, loops, and/or arrays to store repeated elements.
 
 If you prefer a non-Christmas option, you may choose a different song with similarly repeating structure, such as "There was an Old Woman Who Swallowed a Fly".  If you prefer a vegan option, you may write your own cruelty-free song.
 
+
+//my solution for #3
+//
+var days = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth"];
+//count-down value
+var numberOfDays = days.length;
+
+var gifts = ["A Partridge in a Pear Tree", "Two Turtle Doves", "Three French Hens", "Four Calling Birds", "Five Golden Rings", "Six Geese a Laying", "Seven Swans a Swimming", "Eight Maids a Milking", "Nine Ladies Dancing", "Ten Lords a Leaping", "Eleven Pipers Piping", "12 Drummers Drumming"];
+
+for (var i = 0; i < numberOfDays; i++) {
+  console.log ("On the "+ days[i] + " day of Christmas my true love sent to me " + gifts [i]);
+}
 ---
 
 **4)** _(Difficult, 20%)_
@@ -121,14 +170,58 @@ Imagine that a deck of playing cards is sorted by rank and suit: first all the A
 **a)** Write five related functions to compute different aspects of a card:
 
 * `rank(id)` returns 1-13, representing the card's rank (for an _id_ between 0-51).
+//rank solution:
+function rank(id) { 
+  //comment here.
+  return math.floor (id/4)+1
+  }
 
 * `suit(id)` returns 1-4, representing the card's suit (1 is Hearts, 4 is Clubs).
+//suit solution:
+function suit(id) { 
+//
+  
+  return (id%4)+1;   
+
+  
+  // --> 1..4
+}
 
 * `color(id)` returns "red" or "black".
+//color solution
+
+}
+
+function color(id) { // -->"red","black"
+  var x = suit(id);
+  if (x == 1|| x==2)
+    return "red";
+  else
+    return "black";
+    
+    //Or tertiary return (x<=2) "Red" : "Black";
+}
+
+
+
 
 * `name(id)` returns the full name of the card (e.g. "Four of Diamonds").
+//name solution
+}
+
+function name(id) { // --> string
+  var suits = ["hearts","Diamonds", "Spades", "Clubs"]
+  var cards = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
+
+}
+
+
+
 
 * `cardID(rank,suit)` returns 0-51, identifying the card id of a given rank and suit.
+//cardID solution
+
+
 
 Assume each function is given valid arguments (i.e. the args are integers in the appropriate range).
 Your functions may call each other-- for example: _color_ could be derived from _suit_. Try to reuse functions to avoid duplicating code.
