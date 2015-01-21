@@ -177,20 +177,22 @@ If you prefer a non-Christmas option, you may choose a different song with simil
 
 ```
 
-var days = ["first ", "second ", "third ", "fourth ", "fifth ", "sixth ", "seventh ", "eighth ", "ninth ", "tenth ", "eleventh ", "twelfth "]
-var sent = ["a Partridge in a Pear Tree.", "Two Turtle Doves", "Three French Hens", "4 Calling Birds", "5 Gold Rings", "6 Geese a-Laying", "7 Swans a-Swimming", "8 Maids a-Milking", "9 Ladies Dancing", "10 Lords a-Leaping", "11 Pipers Piping", "12 Drummers Drumming" ]
+var days = ['', "first ", "second ", "third ", "fourth ", "fifth ", "sixth ", "seventh ", "eighth ", "ninth ", "tenth ", "eleventh ", "twelfth "]
 
-
+var gave = ['', "a Partridge in a Pear Tree.", "Two Turtle Doves and", "Three French Hens", "4 Calling Birds", "5 Gold Rings", "6 Geese a-Laying", "7 Swans a-Swimming", "8 Maids a-Milking", "9 Ladies Dancing", "10 Lords a-Leaping", "11 Pipers Piping", "12 Drummers Drumming" ]
 
 function song(){
- for (i = 0; i <= days.length -1; i++) {
- console.log("On the " + days[i] + "day of Christmas" + '\n'
- + "my true love sent to me " + sent[i] + '\n');
- };
+for (var day =1; day <= 12; day++)	{
+	var str = '';
+	for (var letter = day; letter > 0; letter--)	{
+		str = str + gave[letter] + '\n';
+	}
+  
+  console.log("On the " + days[day] + "day of Christmas" + '\n'
+              + "my true love gave to me " + str + '\n')
 }
-
+}
 song()
-
 
 ```
 
@@ -268,15 +270,17 @@ UGH! I'm confused as to what is needed / how to do it.
 values[]
 
 function andN(values)	{
+	for (var values; values>0; values++){
 
-	if	(values[] == true  )	{
+	if	(values == true  )	{
 		return true
 	}
 	else	{
 		return false
 	}
-	
 }
+}
+andN(3);
 
 ```
 

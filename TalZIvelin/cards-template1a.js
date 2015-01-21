@@ -109,4 +109,3 @@ assert(findcolor(0)==='red',   "Test 10 failed");
 assert(findcolor(2)==='black', "Test 11 failed");
 assert(findname(5)==='Two of Diamonds', "Test 12 failed");
 assert(findname(51)==='King of Clubs',  "Test 13 failed");
-
