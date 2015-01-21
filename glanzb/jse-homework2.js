@@ -1,11 +1,3 @@
-/*
- * Ez a JavaScript Scratchpad.
- *
- * Írjon be JavaScript kódot, majd válasszon a Végrehajtás vagy a helyi menüből:
- * 1. Futtatás: a kijelölt szöveg (Ctrl+R) kiértékelése,
- * 2. Vizsgálat: az eredmény (Ctrl+I) megnézése az Objektumvizsgálóban, vagy
- * 3. Megjelenítés: az eredmény beszúrása megjegyzésben a kijelölés után. (Ctrl+L)
- */
 Homework #2
 
 Due Monday, 1/19
@@ -178,74 +170,12 @@ Suppose the '&' key on your keyboard is missing, and you want to be able to cont
 
 a) Write a function and2(a,b) which tries to simulate the && operator: it should always return the same result as (a && b) for any values of a and b. (For example, and2((0>1),true) should return false.) But you can't use && itself within your function!
 
-function and2(a,b) {
-  function isTrueb(b) {
-      if (b == true) {
-       return true;
-       } else {
-       return false;
-       }
-    };
-   if (a == true) {
-       if (isTrueb(b) == true){
-         return true;
-       } else {
-         return false;
-       }
-   } else {
-      return false
-    }
-  };
+
 
 
 b) Write another function and3(a,b,c) which tries to simulate a double-&& operator: it should always return the same result as (a && b && c) for any values of a,b,c. (For example, and3((1>0),(0>1),true) should return false.) As before, you're not allowed to use && itself. Remember that you can call functions from functions!
 
-function and3(a,b,c) {
-  function isTruec(c) {
-      if (c == true) {
-       return true;
-       } else {
-       return false;
-       }
-    };
-  function isTrueb(b) {
-      if (b == true) {
-       return true;
-       } else {
-       return false;
-       }
-    };
-   if (a == true) {
-       if (isTrueb(b) == false){
-         return true;
-       } else {
-         return false;
-       }
-   } else {
-      return false
-    }
-  };
 
-
-
-
-
-var abc = [a, b, c]
-function and3(a,b,c) {
-  
-  function isTrue(abc) {
-      if (abc[0] == false) {
-       return false;
-       } else if (abc[1] == false){
-          return false;
-       } else if (abc[2] == false){ 
-        return false;
-       } else {
-         return true;
-       }
-    };
-};
-  
 
 
 
@@ -254,6 +184,12 @@ c) Now generalize your function to handle any number of values. You will learn b
 
 
 d) You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances. Explain why, and find an example which demonstrates failure.
+
+
+
+
+
+
 
 5) (Moderate, 35%)
 
