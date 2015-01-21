@@ -150,38 +150,25 @@ Write a function which returns a string containing the entire lyrics for the son
 
 If you prefer a non-Christmas option, you may choose a different song with similarly repeating structure, such as "There was an Old Woman Who Swallowed a Fly". If you prefer a vegan option, you may write your own cruelty-free song.
 
-/* help needed on hw session */
 
 Subsequent verses follow the same pattern, each adding one new gift and repeating all the earlier gifts, so that each verse is one line longer than its predecessor:
 
+// based on hw classroom help
 
 var days = ["First ", "Second ", "Third ", "Fourth ", "fifth ", "sixth ",
    "seventh ", "eighth ", "ninth ", "tenth ", "eleventh ", "twelfth "];
-var lines = "" 
 
-var presents = ["a Partridge in a Pear Tree.", "Two Turtle Doves", "Three French Hens", "Four Calling Birds", "Five Gold Rings", "Six Geese a-Laying", "Seven Swans a-Swimming", "Eight Maids a-Milking", "Nine Ladies Dancing", "Ten Lords a-Leaping", "Eleven Pipers Piping", "Twelve Drummers Drumming"];
+var presents = ["a Partridge in a Pear Tree.", "Two Turtle Doves and", "Three French Hens, ", "Four Calling Birds, ", "Five Gold Rings, ", "Six Geese a-Laying, ", "Seven Swans a-Swimming, ", "Eight Maids a-Milking, ", "Nine Ladies Dancing, ", "Ten Lords a-Leaping, ", "Eleven Pipers Piping, ", "Twelve Drummers Drumming, "];
 
 
+for (var day = 0 ; day <12; ++day){ 
+  var str = '';
+  for (var lines = day ; lines >= 0; lines-- ){ 
+   str = str  + presents[lines] + '\n';
+  } 
+  console.log("On the " + days[day] + "day of Christmas my true love sent to me" + '\n' + str);
+}
   
-function makeLines(){
- for (var i=0; i<days.length; i++){
-     var lines += "On the " + days[i] + "day of Christmas my true love sent to me" + '\n' + presents[i] + '\n';
-  }
-  return lines;
-}
-
-
-function makeSong(){
-  var song = ""
-  for (n+0; n<12; n++){
-    var song = makeLines(n);
-  }
-  return song
-}
-
-
-console.log (makeSong());
-
 
 
 
@@ -306,24 +293,39 @@ Hint #3: you can test whether an number n is an integer with (n%1 === 0).
 c) In the file with your solution to part b, extend the existing test suite: write 3 new assertions to test success cases and 3 more assertions to test failure cases.
 
 function rank(id) {
-  var result = return Math.floor(id/4)+1  
+  var result = Math.floor(id/4)+1; 
   return result;
 }
+
+or 
+function rank(id) {
+  return = Math.floor(id/4)+1;
+}
+
+
 
 function suit(id) {
-  var result = (id%4) + 1
+  var result = (id%4) + 1;
   return result;
 }
 
-function cardID(rank,suit) { // --> 0..51
+function cardID(rank,suit) {
+  return (rank-1)*4 + (suit-1);
 }
 
-function color(card) { 
-  if (suit = 1 || 2){
+
+function color(id) { 
+  if (suit(id) == 1 || suit(id) ==2){
     return "red"
   } else {
     return "black"
   }  
+}
+
+
+// Dan's solution
+function color(card) { // -->"red,"black"
+    return (suit(card) < 3)? "red": "black";
 }
 
 var suitNames = ["", "Hearts", "Diamonds", "Spades", "Clubs"];
@@ -341,7 +343,7 @@ function name(id) {
   return fullName;
 }
 
-//cleaned up comma after var, the others use the keyword too
+
 function name(id) { 
   var rankName = rankNames[rank(id)],
       suitName = suitnames[suit(id)],
