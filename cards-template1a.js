@@ -2,6 +2,48 @@
 
 // function()--> possible return values
 
+
+//Rank Function
+function rank(id) { 
+  
+  return math.floor (id/4)+1
+  }
+
+//Suit Function
+function suit(id) { 
+ 
+  return (id%4)+1;   
+ 
+  // --> 1..4
+}
+
+//CardID Function
+function cardID(rank,suit) { // --> 0..51
+}
+//Color Function
+function color(id) { // -->"red","black"
+  var x = suit(id);
+  if (x == 1|| x==2)
+    return "red";
+  else
+    return "black";
+    
+    //Or tertiary return (x<=2) "Red" : "Black";
+}
+//Name Function UNFINISHED
+function name(id) { // --> string
+  var suits = ["hearts","Diamonds", "Spades", "Clubs"]
+  var cards = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
+// 
+
+}
+
+
+// TESTING:
+function assert(claim,message) {
+    if (!claim) console.error(message);
+}
+
 function rank(card) { // --> 1..13
 }
 
