@@ -15,6 +15,28 @@ Revisit your solution to homework #1, problem 5, which expresses an improper fra
 **a)** Write a function `fractionString(n,d)` which takes 2 parameters (n,d) and returns a string.  For example, 
 `fractionString(7,4)` should return "1 3/4", and `fractionString(3,3)` should (for now) return "1 0/3".  As before, assume that _n_ and _d_ are both positive integers.
 
+
+```
+//Question 1
+
+//a & b
+
+function fractionString(n, d){
+  var rem = n % d;
+  if (d === 0) {
+  return n;
+  } else if (n > d && rem == 0) {
+    return (Math.floor(n/d));
+    } else if (n > d) {
+    return (Math.floor(n/d) + " " + rem + "/" + d);
+    }  else if (n == d) {
+      return(n);
+    } else {  
+         return (n + "/" + d);
+  }
+};
+```
+
 Note that _returning_ a string is not the same as _printing_ a string.  You may use `console.log()` for debugging, but your function should have the correct string as its return value.
 You can also print your return value with an expression like `console.log(fractionString(7,4))`.
 
@@ -41,6 +63,13 @@ if ((n - Math.floor(n)) >= .5) {
 }
 ```
 
+Solution:
+
+```
+var i
+n - Math.floor(n) >= .5 ? i = Math.ceil(n) : i = Math.floor(n);
+```
+
 
 **b)**
 ```
@@ -50,7 +79,16 @@ if (xIsFalse)
 else
    y = x;
 ```
+Solution:
 
+```
+var y, x
+if (x == true) {
+  y = true;
+  } else {
+  y = false;
+}
+```
 
 **c)**
 ```
@@ -60,6 +98,13 @@ for (var count = 15 - i ; count < 15 ; count=count+1) {
 }
 ```
 
+Solution 
+
+```
+for (var i = 15 ; i >= 1 ; i--){
+  console.log(i)
+};
+```
 
 **d)**
 ```
@@ -78,7 +123,18 @@ if (a) {
   }
 }
 ```
+Solution:
 
+```
+var x;
+if (a && b) {
+  x = 0;
+} else if (a || b) {
+  x = 1;
+} else {
+  x = 2;
+}
+```
 
 ---
 
@@ -91,6 +147,36 @@ If you prefer a non-Christmas option, you may choose a different song with simil
 
 ---
 
+
+Solution:
+
+??? - though, I'm not sure if this is right? It says in the homework not to just 
+console.log each line.... and I don't think I did that per se, but I defininitly
+ am console.log'ing the solution, ultimately.)
+
+```
+var days = ["first ", "second ", "third ", "fourth ", "fifth ", "sixth ",
+ "seventh ", "eighth ", "ninth ", "tenth ", "eleventh ", "twelfth "]
+
+var gifts = ["A Partridge in a Pear Tree", "Two Turtles Doves", 
+"Three French Hens", "Four Calling Birds", "Five Golden Rings", 
+"Six Geese a Laying", "Seven Swans a Swimming", "Eight Maids a Milking", 
+"Nine Ladies Dancing", "Ten Lords a Leaping", "Eleven Pipers Piping", 
+"Twelve Drummers Drumming"]
+
+  function earlierDays(b){
+    for (g = b-2; g >= 0; g--) {
+      console.log(gifts[g] + ',' + '\n')}
+  };
+
+function singIt(){
+  for ( var i = 0; i <= days.length - 2; i++) {
+    console.log("On the " + days[i] + "day of Christmas" + '\n'
+     + "my true love sent to me: " + gifts[i] + '\n' + earlierDays(i));
+  };
+}
+```
+
 **4)** _(Difficult, 20%)_
 
 Suppose the '&' key on your keyboard is missing, and you want to be able to continue programming without it.  You decide to simulate the && operator with a function!
@@ -98,7 +184,52 @@ Suppose the '&' key on your keyboard is missing, and you want to be able to cont
 **a)**
 Write a function `and2(a,b)` which tries to simulate the && operator: it should always return the same result as `(a && b)` for any values of _a_ and _b_.  (For example, `and2((0>1),true)` should return _false_.)  But you can't use && itself within your function!
 
+Solution: 
+```
+function and2(a,b){
+  function checkB(b) {
+    if (b === true){
+      return true;
+    } else {
+      return false;
+    };
+  };
+  if (a === true) {
+    return checkB(b);
+    } else {return false}
+  }
+
+```
+
+
+
+
 **b)** Write another function `and3(a,b,c)` which tries to simulate a double-&& operator: it should always return the same result as `(a && b && c)` for any values of a,b,c.  (For example, `and3((1>0),(0>1),true)` should return _false_.)  As before, you're not allowed to use && itself. Remember that you can call functions from functions!
+
+Solution:
+
+```
+function and3(a,b,c){
+  function checkC(c) {
+    if (c === true) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+  function checkB(b) {
+    if (b === true){
+      return checkC(c);
+    } else {
+      return false;
+    };
+  };
+  if (a === true) {
+    return checkB(b);
+    } else {return false}
+  }
+  ```
+
 
 **c)**
 Now generalize your function to handle any number of values.  You will learn better ways eventually, but for now use an array to store all the values.
@@ -108,13 +239,40 @@ If the argument you provide when calling the function holds values [a,b,c...z], 
 Make sure to handle two special cases: length 0 (then return _true_) and length 1 (then return that single value).
 Again, don't use &&.
 
+Solution:
+
+```
+  function andN(values){
+  for (i = 0; i <= values.length; i++){
+    if (values[i] === false) {
+      return false;
+    } };
+    if (i = values.length + 2) {
+      return true;
+    }
+    ;}
+  ```
+
 **d)**
 You've just realized that your effort was doomed: neither of your functions can replace the && operator in certain circumstances.  Explain why, and find an example which demonstrates failure.
+
+
+Examples of failures and why:
+
+a. 
+```
+and2(@, -)
+```
+
+Returns Uncaught, unexpected token ILLEGAL. Seems like there could be functions written to prevent the user from inputting illegal characters, especially considering '@ && -' returns the same thing. In general illegal characters are always going to come out this way I think... 
+
 
 ---
 
 
 **5)** _(Moderate, 35%)_
+
+++++++Answers to Problem 5 located on templates+++++++
 
 Imagine that a deck of playing cards is sorted by rank and suit: first all the Aces, then the Twos, etc, with the Kings last.  Within each rank, the suits are in the order Hearts, Diamonds, Spades, Clubs.  Number each card in order from 0 to 51 (i.e. 0=Ace of Hearts; 1=Ace of Diamonds; 51=King of Clubs), and let that ID number represent the corresponding card.  Use this encoding scheme for each part below.
 
