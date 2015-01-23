@@ -1,49 +1,47 @@
 /************  ANSWERS TO QUESTION 5 A ************/
-var suit;
-var rank;
-var id;
 
-var suitName = ["Hearts", "Diamonds", "Spades", "Clubs"];
+var suitName = [1, 2, 3, 4];
+var suitTitle= ["Hearts", "Diamonds", "Spades", "Clubs"]
 var rankName = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
 //////////  5.1 ////////////////
 
-function findRank(id) {
-	rank = Math.floor(id/4) + 1;
-	return rank;
+function rank(id) {
+	cardRank = Math.floor(id/4) + 1;
+	return cardRank;
 }
 
 //////////  5.2////////////////
 
-function findSuit(id) { // --> 1..4
-	findID(suit, rank);
+function suit(id) { // --> 1..4
+	cardID(suit, rank);
 	suitLabel = suitName[id%4];
 	return suitLabel;
 }
 
 //////////  5.3 ////////////////
 
-function findColor(id) {
+function color(id) {
 	if (id%4 < 2) {
-		color = "Red";
+		cardColor = "red";
 	} 
 	else {
-		color = "Black";
+		cardColor = "black";
 	}
-	return color;
+	return cardColor;
 }
 
 //////////  5.4 ////////////////
 
-function findName(id) { // -->"red","black"
-	cardName = rankName[Math.floor(id/4)];
-	nameOfCard= (cardName + " of " + findSuit(id));
+function name(id) { // -->"red","black"
+	cardName = suitTitle[id%4];
+	nameOfCard= (rankName[rank(id)-1] + " of " + cardName);
 	return nameOfCard;
 }
 
 //////////  5.5 ////////////////
 
-function findID(suit, rank) {
-id= (4 * (rank-1)) + suit;
+function cardID(rank, suit) {
+id= (rank * 4) - (5 - suit);
 return id;
 }
 
