@@ -1,72 +1,72 @@
 // Error-detecting version
 
-var suit;
-var rank;
-var id;
-
-var suitName = ["Hearts", "Diamonds", "Spades", "Clubs"];
+var suitName = [1, 2, 3, 4];
+var suitTitle= ["Hearts", "Diamonds", "Spades", "Clubs"];
 var rankName = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
 
 //////////  5.1 ////////////////
 
-function findRank(id) {
-	if (!(Number.isInteger(id)) || id > 51 || id < 0 {
+function rank(id) {
+	if (!(Number.isInteger(id)) || id > 51 || id < 0) {
 		return NaN;
 	}
-	rank = Math.floor(id/4) + 1;
-	return rank;
+	cardRank = Math.floor(id/4) + 1;
+	return cardRank;
 }
+
 
 //////////  5.2////////////////
 
-function findSuit(id) { // --> 1..4
-	if (!(Number.isInteger(id)) || id > 51 || id < 0 {
+function suit(id) { // --> 1..4
+	if (!(Number.isInteger(id)) || id > 51 || id < 0) {
 	return NaN;
 	}
-	findID(suit, rank);
+	cardID(suit, rank);
 	suitLabel = suitName[id%4];
 	return suitLabel;
 }
 
 //////////  5.3 ////////////////
 
-function findColor(id) {
-	if (!(Number.isInteger(id)) || id > 51 || id < 0 {
+function color(id) {
+	if (!(Number.isInteger(id)) || id > 51 || id < 0) {
 	return NaN;
 	}
 	else if (id%4 < 2) {
-		color = "Red";
+		cardColor = "red";
 	} 
 	else {
-		color = "Black";
+		cardColor = "black";
 	}
-	return color;
+	return cardColor;
 }
 
 //////////  5.4 ////////////////
 
-function findName(id) { // -->"red","black"
-	if (!(Number.isInteger(id)) || id > 51 || id < 0 {
+function name(id) { // -->"red","black"
+	if (!(Number.isInteger(id)) || id > 51 || id < 0) {
 	return NaN;
 	}
-	cardName = rankName[Math.floor(id/4)];
-	nameOfCard= (cardName + " of " + findSuit(id));
+	cardName = suitTitle[id%4];
+	nameOfCard= (rankName[rank(id)-1] + " of " + cardName);
 	return nameOfCard;
 }
 
 //////////  5.5 ////////////////
 
-function findID(suit, rank) {
+function cardID(rank, suit) {
 	/*Oops! Just realized there was a flaw in my original function. You can't enter a string of the suit name, just the suit array value. */
-	if (suit > 3 || suit < 0 || !(Number.isInteger(suit))))  /*(suit !(Hearts" || "Diamonds" || "Spades" || "Clubs""))*/ {
+	if (suit > 4 || suit < 1 || !(Number.isInteger(suit)))  /*(suit !(Hearts" || "Diamonds" || "Spades" || "Clubs""))*/ {
 		return NaN;
-	} else if (rank > 13 || rank < 0 || !(Number.isInteger(rank))) {
+	} else if (rank > 13 || rank < 1 || !(Number.isInteger(rank))) {
 		return NaN;
 	}
-	else { id= (4 * (rank-1)) + suit;
-	return id;
+	else { 
+		id = (rank * 4) - (5 - suit);
+		return id;
 	}
 }
+
 
 
 // TESTING:
@@ -117,4 +117,3 @@ assert(Number.isNaN(name(false)),   "Test 43 failed");
 assert(Number.isNaN(name(-1)),      "Test 44 failed");
 assert(Number.isNaN(name(52)),      "Test 45 failed");
 assert(Number.isNaN(name(NaN)),     "Test 46 failed");
-

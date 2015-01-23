@@ -1,7 +1,7 @@
 /************  ANSWERS TO QUESTION 5 A ************/
 
 var suitName = [1, 2, 3, 4];
-var suitTitle= ["Hearts", "Diamonds", "Spades", "Clubs"]
+var suitTitle= ["Hearts", "Diamonds", "Spades", "Clubs"];
 var rankName = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
 //////////  5.1 ////////////////
 
