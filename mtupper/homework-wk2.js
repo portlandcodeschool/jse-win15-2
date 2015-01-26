@@ -138,7 +138,7 @@ function twelveDaysOfXmas() {
         else {
             giftCount.unshift(gifts[i]);
             lyrics += "On the " + dayCount[i] + opener + giftCount + "And a " + gifts[0];
-        }
+        };
     }
 
     console.log(lyrics);
@@ -195,7 +195,7 @@ function andN(values) {
         return (values);
     }
 
-    for (i =0; i < values.length; i++) {
+    for (i = 0; i < values.length; i++) {
         if (values[i] !== true) {
             return false;
         }
@@ -211,7 +211,7 @@ function andN(values) {
 
 // Problem 4d
 
-// Work on answer here
+// Not sure, TBD
 
 
 // Problem 5a
@@ -318,19 +318,26 @@ function cardID(rank, suit) {
 // Problem 5b
 
 function numCheck(x) {
-    if (typeof x !== "number" || x > 51 || x < 0) {
+    if (typeof x !== "number" || x % 1 !== 0 || x > 51 || x < 0) {
         x = "NaN";
         return x;
+        console.log(x);
     }
+    return x;
+    console.log(x);
 }
 
 function cardCheck(x, y) {
-    if (typeof x !== "number" || x > 13 || x < 1) {
+    if (typeof x !== "number" || x % 1 !== 0|| x > 13 || x < 1) {
         x = "rank is NaN";
         return x;
+        console.log(x);
     }
-    if (typeof y !== "number" || y > 4 || y < 1) {
+    if (typeof y !== "number" || y % 1 !== 0 || y > 4 || y < 1) {
         y = "suit is NaN";
         return y;
+        console.log(y);
     }
+    return '(' + x + ', ' + y + ')';
+    console.log('(' + x + ', ' + y + ')');
 }
