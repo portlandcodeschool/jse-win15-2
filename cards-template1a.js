@@ -3,18 +3,94 @@
 // function()--> possible return values
 
 function rank(card) { // --> 1..13
+    var r = Math.floor(card / 4) + 1;
+    return r;
 }
 
 function suit(card) { // --> 1..4
+    var s = (card % 4) + 1;
+    return s;
 }
 
 function cardID(rank,suit) { // --> 0..51
+    var cid = (rank * 4) - (5 - suit);
+    return cid;
 }
 
 function color(card) { // -->"red","black"
+    var c;
+    var x = suit(card);
+    if (x === 1 || x === 2) {
+        c = "red";
+    }
+    else {
+        c = "black";
+    }
+    return c;
 }
 
 function name(card) { // --> string
+    var rankText;
+    var suitText;
+
+    switch(rank(card)) {
+        case 1:
+            rankText = "Ace of ";
+            break;
+        case 2:
+            rankText = "Two of ";
+            break;
+        case 3:
+            rankText = "Three of ";
+            break;
+        case 4:
+            rankText = "Four of ";
+            break;
+        case 5:
+            rankText = "Five of ";
+            break;
+        case 6:
+            rankText = "Six of ";
+            break;
+        case 7:
+            rankText = "Seven of ";
+            break;
+        case 8:
+            rankText = "Eight of ";
+            break;
+        case 9:
+            rankText = "Nine of ";
+            break;
+        case 10:
+            rankText = "Ten of ";
+            break;
+        case 11:
+            rankText = "Jack of ";
+            break;
+        case 12:
+            rankText = "Queen of ";
+            break;
+        case 13:
+            rankText = "King of ";
+            break;
+    }
+
+    switch(suit(card)) {
+        case 1:
+            suitText = "Hearts";
+            break;
+        case 2:
+            suitText = "Diamonds";
+            break;
+        case 3:
+            suitText = "Spades";
+            break;
+        case 4:
+            suitText = "Clubs";
+            break;
+    }
+    return rankText + suitText;
+    console.log(rankText + suitText);
 }
 
 

@@ -1,18 +1,122 @@
 // Error-detecting version
 
-function rank(card) {
+function rank(id) {
+    numCheck(id); // from 5b
+    var r = Math.floor(id / 4) + 1;
+    return r;
+    console.log(r);
 }
 
-function suit(card) {
+function suit(id) {
+    numCheck(id); // from 5b
+    var s = (id % 4) + 1;
+    return s;
+    console.log(s);
 }
 
-function cardID(rank,suit) {
+function color(id) {
+    numCheck(id); // from 5b
+    var c;
+    var x = suit(id);
+    if (x === 1 || x === 2) {
+        c = "red";
+    }
+    else {
+        c = "black";
+    }
+    return c;
+    console.log(c);
 }
 
-function color(card) {
+function name(id) {
+    numCheck(id); // from 5b
+    var rankText;
+    var suitText;
+
+    switch(rank(id)) {
+        case 1:
+            rankText = "Ace of ";
+            break;
+        case 2:
+            rankText = "Two of ";
+            break;
+        case 3:
+            rankText = "Three of ";
+            break;
+        case 4:
+            rankText = "Four of ";
+            break;
+        case 5:
+            rankText = "Five of ";
+            break;
+        case 6:
+            rankText = "Six of ";
+            break;
+        case 7:
+            rankText = "Seven of ";
+            break;
+        case 8:
+            rankText = "Eight of ";
+            break;
+        case 9:
+            rankText = "Nine of ";
+            break;
+        case 10:
+            rankText = "Ten of ";
+            break;
+        case 11:
+            rankText = "Jack of ";
+            break;
+        case 12:
+            rankText = "Queen of ";
+            break;
+        case 13:
+            rankText = "King of ";
+            break;
+    }
+
+    switch(suit(id)) {
+        case 1:
+            suitText = "Hearts";
+            break;
+        case 2:
+            suitText = "Diamonds";
+            break;
+        case 3:
+            suitText = "Spades";
+            break;
+        case 4:
+            suitText = "Clubs";
+            break;
+    }
+    return rankText + suitText;
+    console.log(rankText + suitText);
 }
 
-function name(card) {
+function cardID(rank, suit) {
+    cardCheck(rank, suit); // from 5b
+    var cid = (rank * 4) - (5 - suit);
+    return cid;
+}
+
+// Problem 5b
+
+function numCheck(x) {
+    if (typeof x !== "number" || x > 51 || x < 0) {
+        x = "NaN";
+        return x;
+    }
+}
+
+function cardCheck(x, y) {
+    if (typeof x !== "number" || x > 13 || x < 1) {
+        x = "NaN";
+        return x;
+    }
+    if (typeof y !== "number" || y > 4 || y < 1) {
+        y = "NaN";
+        return y;
+    }
 }
 
 
